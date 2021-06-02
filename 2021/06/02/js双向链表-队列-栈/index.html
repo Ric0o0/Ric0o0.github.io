@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: JS链表 | Hexo</title>
+  <title>js双向链表_队列_栈 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/JS%E9%93%BE%E8%A1%A8/index.html">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js双向链表_队列_栈">
+<meta property="og:url" content="http://example.com/2021/06/02/js%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8-%E9%98%9F%E5%88%97-%E6%A0%88/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-02T14:47:44.000Z">
+<meta property="article:modified_time" content="2021-06-02T14:48:26.777Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,60 +154,157 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js双向链表-队列-栈" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/05/30/JS%E9%93%BE%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2021-05-30T08:46:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/05/30/JS%E9%93%BE%E8%A1%A8/">JS链表</a>
+    <h1 class="article-title" itemprop="name">
+      js双向链表_队列_栈
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS链表</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/2021/06/02/js%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8-%E9%98%9F%E5%88%97-%E6%A0%88/" class="archive-article-date">
+  	<time datetime="2021-06-02T14:47:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 双向链表</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">    <span class="title">constructor</span> (<span class="params">element</span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.element = element <span class="comment">// 元素</span></span><br><span class="line">        <span class="built_in">this</span>.last = <span class="literal">null</span> <span class="comment">// 上一指针</span></span><br><span class="line">        <span class="built_in">this</span>.next = <span class="literal">null</span> <span class="comment">// 下一指针</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoubleLinkedList</span> </span>&#123;</span><br><span class="line">    <span class="title">constructor</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.head = <span class="literal">null</span>  <span class="comment">// 链表头</span></span><br><span class="line">        <span class="built_in">this</span>.tail = <span class="literal">null</span>  <span class="comment">// 链表尾</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 从头部添加</span></span><br><span class="line">    addFromHead (element) &#123;</span><br><span class="line">        <span class="keyword">let</span> node = <span class="keyword">new</span> Node(element)</span><br><span class="line">        <span class="comment">// 判断this.head是否为空</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.head === <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="built_in">this</span>.head = node;</span><br><span class="line">            <span class="built_in">this</span>.tail = node;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.head.last = node;  <span class="comment">// 原来的头节点last指向新节点</span></span><br><span class="line">            node.next = <span class="built_in">this</span>.head; <span class="comment">// 新节点的next指向原来的头节点</span></span><br><span class="line">            <span class="built_in">this</span>.head = node; <span class="comment">// head指向新节点</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 从尾部添加</span></span><br><span class="line">    addFromTail (element) &#123;</span><br><span class="line">        <span class="keyword">let</span> node = <span class="keyword">new</span> Node(element);</span><br><span class="line">        <span class="comment">// 判断this.head是否为空</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.head === <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="built_in">this</span>.head = node;</span><br><span class="line">            <span class="built_in">this</span>.tail = node;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            node.last = <span class="built_in">this</span>.tail;</span><br><span class="line">            <span class="built_in">this</span>.tail.next = node;</span><br><span class="line">            <span class="built_in">this</span>.tail = node;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 从头部弹出</span></span><br><span class="line">    popFromHead () &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.head === <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> popNode = <span class="built_in">this</span>.head</span><br><span class="line">        <span class="comment">// 只有一个节点</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.head === <span class="built_in">this</span>.tail)&#123;</span><br><span class="line">            <span class="built_in">this</span>.head = <span class="literal">null</span>;</span><br><span class="line">            <span class="built_in">this</span>.tail = <span class="literal">null</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 正常情况</span></span><br><span class="line">            <span class="built_in">this</span>.head = popNode.next;</span><br><span class="line">            <span class="built_in">this</span>.head.last = <span class="literal">null</span>;</span><br><span class="line">            popNode.last = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> popNode</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 从尾部弹出</span></span><br><span class="line">    popFromTail () &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.tail === <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> popNode = <span class="built_in">this</span>.tail</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.head === <span class="built_in">this</span>.tail)&#123;</span><br><span class="line">            <span class="built_in">this</span>.head = <span class="literal">null</span>;</span><br><span class="line">            <span class="built_in">this</span>.tail = <span class="literal">null</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.tail = popNode.last;</span><br><span class="line">            <span class="built_in">this</span>.tail.next = <span class="literal">null</span>;</span><br><span class="line">            popNode.last = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> popNode</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// let dll = new DoubleLinkedList()</span></span><br><span class="line"><span class="comment">// dll.addFromHead(3)</span></span><br><span class="line"><span class="comment">// dll.addFromHead(2)</span></span><br><span class="line"><span class="comment">// dll.addFromHead(1)</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// dll.addFromTail(4)</span></span><br><span class="line"><span class="comment">// console.log(dll.popFromTail())</span></span><br><span class="line"><span class="comment">// console.dir(dll, &#123;depth: 100&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyQueue</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 先进先出  头进尾出</span></span><br><span class="line">    <span class="title">constructor</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.length = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.queue = <span class="keyword">new</span> DoubleLinkedList()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="title">push</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.length++;</span><br><span class="line">        <span class="built_in">this</span>.queue.addFromHead(element);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="title">pop</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.length--</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.queue.popFromTail()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> mq = <span class="keyword">new</span> MyQueue();</span><br><span class="line">mq.push(<span class="number">1</span>)</span><br><span class="line">mq.push(<span class="number">2</span>)</span><br><span class="line">mq.push(<span class="number">3</span>)</span><br><span class="line"><span class="built_in">console</span>.log(mq.pop())</span><br><span class="line"><span class="built_in">console</span>.dir(mq, &#123;<span class="attr">depth</span>: <span class="number">100</span>&#125;)</span><br></pre></td></tr></table></figure>
 
-          
 
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/02/js%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8-%E9%98%9F%E5%88%97-%E6%A0%88/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/05/30/JS%E9%93%BE%E8%A1%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS链表</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -226,9 +327,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
