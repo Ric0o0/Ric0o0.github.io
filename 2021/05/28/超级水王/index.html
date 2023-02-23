@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>超级水王 | Rico&#39;s blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="超级水王在一个数组中，有一个数a出现的次数，大于数组长度N的一半，称a为水王数，找出a假设有一个数组[1,3, 2, 3 ,1 ,2 ,2 , 3, 3 ,1 ,3 , 3, 3] N ：13 1: 3次 2: 3次 3: 7次 (水王) 使用常规方法： 遍历数组，同时创建{1:3， 2:3， 3:7} ， 然后在对象中找出出现次数最多的  如何更优雅的找出水王？ 直接上代码 function f">
+  <meta name="description" content="超级水王在一个数组中，有一个数a出现的次数，大于数组长度N的一半，称a为水王数，找出a假设有一个数组[1,3, 2, 3 ,1 ,2 ,2 , 3, 3 ,1 ,3 , 3, 3] N ：13 1: 3次 2: 3次 3: 7次 (水王) 使用常规方法： 遍历数组，同时创建{1:3， 2:3， 3:7} ， 然后在对象中找出出现次数最多的  如何更优雅的找出水王？ 直接上代码 1234567891">
 <meta property="og:type" content="article">
 <meta property="og:title" content="超级水王">
 <meta property="og:url" content="http://example.com/2021/05/28/%E8%B6%85%E7%BA%A7%E6%B0%B4%E7%8E%8B/index.html">
 <meta property="og:site_name" content="Rico&#39;s blogs">
-<meta property="og:description" content="超级水王在一个数组中，有一个数a出现的次数，大于数组长度N的一半，称a为水王数，找出a假设有一个数组[1,3, 2, 3 ,1 ,2 ,2 , 3, 3 ,1 ,3 , 3, 3] N ：13 1: 3次 2: 3次 3: 7次 (水王) 使用常规方法： 遍历数组，同时创建{1:3， 2:3， 3:7} ， 然后在对象中找出出现次数最多的  如何更优雅的找出水王？ 直接上代码 function f">
+<meta property="og:description" content="超级水王在一个数组中，有一个数a出现的次数，大于数组长度N的一半，称a为水王数，找出a假设有一个数组[1,3, 2, 3 ,1 ,2 ,2 , 3, 3 ,1 ,3 , 3, 3] N ：13 1: 3次 2: 3次 3: 7次 (水王) 使用常规方法： 遍历数组，同时创建{1:3， 2:3， 3:7} ， 然后在对象中找出出现次数最多的  如何更优雅的找出水王？ 直接上代码 1234567891">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-05-28T02:26:47.000Z">
 <meta property="article:modified_time" content="2021-05-28T03:06:43.900Z">
@@ -178,40 +178,7 @@
 <hr>
 <p>如何更优雅的找出水王？</p>
 <p>直接上代码</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">function func (arr) &#123;
-    &#x2F;&#x2F; 对传入的数据做筛除， 不能为空， 长度不能为0
-    if (arr &#x3D;&#x3D;&#x3D; null || arr.length &#x3D;&#x3D;&#x3D; 0) &#123;
-        return -1
-    &#125;
-    &#x2F;&#x2F; -------------------------------
-    let candidate &#x3D; null  &#x2F;&#x2F; 候选值
-    let restHP &#x3D; 0  &#x2F;&#x2F; 剩余血量
-    for (let cur of arr) &#123;
-        if (restHP &#x3D;&#x3D;&#x3D; 0) &#123; &#x2F;&#x2F; 没有候选
-            candidate &#x3D; cur
-            restHP &#x3D; 1
-        &#125; else if (cur !&#x3D;&#x3D; candidate) &#123; &#x2F;&#x2F; 当前值 不等于 候选
-            restHP--
-        &#125; else &#123;  &#x2F;&#x2F; 当前值等于候选
-            restHP++
-        &#125;
-    &#125;
-    &#x2F;&#x2F; -------------------------------
-    if (restHP &#x3D;&#x3D;&#x3D; 0) &#123;
-        console.log(&#39;null&#39;)
-        return -1
-    &#125;
-    &#x2F;&#x2F; -------------------------------
-    let count &#x3D; 0
-    for (let num of arr) &#123;
-        if (num &#x3D;&#x3D;&#x3D; candidate) &#123;
-            count++
-        &#125;
-    &#125;
-    &#x2F;&#x2F; arr.length &gt;&gt; 1 &#x3D; arr.length &#x2F; 2
-    return count &gt; (arr.length &gt;&gt; 1) ? console.log(candidate) : console.log(&#39;null&#39;)
-    
-&#125;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 对传入的数据做筛除， 不能为空， 长度不能为0</span></span><br><span class="line">    <span class="keyword">if</span> (arr === <span class="literal">null</span> || arr.length === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// -------------------------------</span></span><br><span class="line">    <span class="keyword">let</span> candidate = <span class="literal">null</span>  <span class="comment">// 候选值</span></span><br><span class="line">    <span class="keyword">let</span> restHP = <span class="number">0</span>  <span class="comment">// 剩余血量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> cur <span class="keyword">of</span> arr) &#123;</span><br><span class="line">        <span class="keyword">if</span> (restHP === <span class="number">0</span>) &#123; <span class="comment">// 没有候选</span></span><br><span class="line">            candidate = cur</span><br><span class="line">            restHP = <span class="number">1</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cur !== candidate) &#123; <span class="comment">// 当前值 不等于 候选</span></span><br><span class="line">            restHP--</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;  <span class="comment">// 当前值等于候选</span></span><br><span class="line">            restHP++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// -------------------------------</span></span><br><span class="line">    <span class="keyword">if</span> (restHP === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;null&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// -------------------------------</span></span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> num <span class="keyword">of</span> arr) &#123;</span><br><span class="line">        <span class="keyword">if</span> (num === candidate) &#123;</span><br><span class="line">            count++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// arr.length &gt;&gt; 1 = arr.length / 2</span></span><br><span class="line">    <span class="keyword">return</span> count &gt; (arr.length &gt;&gt; <span class="number">1</span>) ? <span class="built_in">console</span>.log(candidate) : <span class="built_in">console</span>.log(<span class="string">&#x27;null&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 

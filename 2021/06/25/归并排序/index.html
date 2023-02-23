@@ -180,69 +180,7 @@
 <li> 直接把 3 4 添加进help</li>
 <li>让arr[l + i] = help[i] , 把help中的值全部拷贝给arr, 但是此时是以最终形式为例(l = 0), 如果此时要拷贝的是arr的右半部分, 必须得是 l + i , 否则就乱了</li>
 </ol>
-<h4 id="从下一级不断向上一级排序-上一级排序是在下一级已经排好的基础上进行排序-所以当p1或p2越界时-可以直接无脑把剩下值的拷贝进help"><a href="#从下一级不断向上一级排序-上一级排序是在下一级已经排好的基础上进行排序-所以当p1或p2越界时-可以直接无脑把剩下值的拷贝进help" class="headerlink" title="从下一级不断向上一级排序, 上一级排序是在下一级已经排好的基础上进行排序, 所以当p1或p2越界时, 可以直接无脑把剩下值的拷贝进help"></a>从下一级不断向上一级排序, 上一级排序是在下一级已经排好的基础上进行排序, 所以当p1或p2越界时, 可以直接无脑把剩下值的拷贝进help</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 递归版本
-&#x2F;*
-*       [3 4 2 1]
-*        &#x2F;     \
-*      3 4     2 1
-*      &#x2F; \     &#x2F;  \
-*     3   4    2   1
-* *&#x2F;
-&#x2F;&#x2F; let arr &#x3D; [3, 4, 2, 1]
-let arr &#x3D; generateRandomArray(1000000, 100000)
-let time0 &#x3D; new Date()
-rank(arr, 0, arr.length-1)
-let time1 &#x3D; new Date()
-console.log(arr)
-console.log(time1 - time0 + &#39;ms&#39;)
-
-function rank(arr, l, r)&#123;
-    return process(arr, l, r)
-&#125;
-
-function process (arr, l, r) &#123;
-    if (l &#x3D;&#x3D;&#x3D; r)&#123; &#x2F;&#x2F; base case
-        return;
-    &#125;
-    let mid &#x3D; l + ((r - l) &gt;&gt; 1)
-    process(arr, l, mid)  &#x2F;&#x2F; 左侧排序
-    process(arr, mid+1, r)  &#x2F;&#x2F; 右侧排序
-    merge(arr, l, mid, r)  &#x2F;&#x2F; 左右全部排序
-    return arr
-&#125;
-
-function merge (arr, l, mid, r) &#123;
-    let p1 &#x3D; l;  &#x2F;&#x2F; 左侧指针, 负责左侧(l - mid)
-    let p2 &#x3D; mid + 1  &#x2F;&#x2F; 右侧指针, 负责右侧
-    let help &#x3D; new Array(r-l+1)  &#x2F;&#x2F; 辅助数组, 长度为规定的r - l +1 
-    let i &#x3D; 0  &#x2F;&#x2F; 辅助索引
-    while (p1 &lt;&#x3D; mid &amp;&amp; p2 &lt;&#x3D; r)&#123;  &#x2F;&#x2F; 只有p1 和 p2都不越界时才有效
-        &#x2F;&#x2F; 如果把p1放入help中, p1++, 否则p2++  p1&#x2F;p2一次只加一个, 最终一定有一个先越界
-        help[i++] &#x3D; arr[p1] &lt;&#x3D; arr[p2] ? arr[p1++] : arr[p2++]
-    &#125;
-    &#x2F;&#x2F; 下面两个while只会运行一个
-    while (p1 &lt;&#x3D; mid)&#123;  &#x2F;&#x2F; p2越界之后, 直接把arr[p1 ~ mid] 的值直接放到help中
-        help[i++] &#x3D; arr[p1++]
-    &#125;
-    while(p2 &lt;&#x3D; r)&#123;  &#x2F;&#x2F; p1越界后, 直接把arr[p2 ~ r] 的值直接放到help中
-        help[i++] &#x3D; arr[p2++]
-    &#125;
-    for (let i &#x3D; 0; i &lt; help.length; i++)&#123;
-        arr[l + i] &#x3D; help[i]  &#x2F;&#x2F; 把help中的值,拷贝到对应的arr中, 所以 l + i
-    &#125;
-    &#x2F;&#x2F; console.log(&#96;第$&#123;count++&#125;次: $&#123;arr&#125;&#96;)
-&#125;
-
-&#x2F;&#x2F; 对数器
-function generateRandomArray(maxSize, maxValue) &#123;
-    let arr &#x3D; []
-    for (let i &#x3D; 0; i &lt; Math.random()* (maxSize + 1); i++)&#123;
-        arr.push((Math.random() * (maxValue + 1)) - (Math.random() * (maxValue +1 )))
-    &#125;
-    console.log(arr)
-    console.log(arr.length)
-    return arr
-&#125;</code></pre>
+<h4 id="从下一级不断向上一级排序-上一级排序是在下一级已经排好的基础上进行排序-所以当p1或p2越界时-可以直接无脑把剩下值的拷贝进help"><a href="#从下一级不断向上一级排序-上一级排序是在下一级已经排好的基础上进行排序-所以当p1或p2越界时-可以直接无脑把剩下值的拷贝进help" class="headerlink" title="从下一级不断向上一级排序, 上一级排序是在下一级已经排好的基础上进行排序, 所以当p1或p2越界时, 可以直接无脑把剩下值的拷贝进help"></a>从下一级不断向上一级排序, 上一级排序是在下一级已经排好的基础上进行排序, 所以当p1或p2越界时, 可以直接无脑把剩下值的拷贝进help</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归版本</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*       [3 4 2 1]</span></span><br><span class="line"><span class="comment">*        /     \</span></span><br><span class="line"><span class="comment">*      3 4     2 1</span></span><br><span class="line"><span class="comment">*      / \     /  \</span></span><br><span class="line"><span class="comment">*     3   4    2   1</span></span><br><span class="line"><span class="comment">* */</span></span><br><span class="line"><span class="comment">// let arr = [3, 4, 2, 1]</span></span><br><span class="line"><span class="keyword">let</span> arr = generateRandomArray(<span class="number">1000000</span>, <span class="number">100000</span>)</span><br><span class="line"><span class="keyword">let</span> time0 = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">rank(arr, <span class="number">0</span>, arr.length-<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> time1 = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br><span class="line"><span class="built_in">console</span>.log(time1 - time0 + <span class="string">&#x27;ms&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">rank</span>(<span class="params">arr, l, r</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> process(arr, l, r)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span> (<span class="params">arr, l, r</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l === r)&#123; <span class="comment">// base case</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> mid = l + ((r - l) &gt;&gt; <span class="number">1</span>)</span><br><span class="line">    process(arr, l, mid)  <span class="comment">// 左侧排序</span></span><br><span class="line">    process(arr, mid+<span class="number">1</span>, r)  <span class="comment">// 右侧排序</span></span><br><span class="line">    merge(arr, l, mid, r)  <span class="comment">// 左右全部排序</span></span><br><span class="line">    <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span> (<span class="params">arr, l, mid, r</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> p1 = l;  <span class="comment">// 左侧指针, 负责左侧(l - mid)</span></span><br><span class="line">    <span class="keyword">let</span> p2 = mid + <span class="number">1</span>  <span class="comment">// 右侧指针, 负责右侧</span></span><br><span class="line">    <span class="keyword">let</span> help = <span class="keyword">new</span> <span class="built_in">Array</span>(r-l+<span class="number">1</span>)  <span class="comment">// 辅助数组, 长度为规定的r - l +1 </span></span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>  <span class="comment">// 辅助索引</span></span><br><span class="line">    <span class="keyword">while</span> (p1 &lt;= mid &amp;&amp; p2 &lt;= r)&#123;  <span class="comment">// 只有p1 和 p2都不越界时才有效</span></span><br><span class="line">        <span class="comment">// 如果把p1放入help中, p1++, 否则p2++  p1/p2一次只加一个, 最终一定有一个先越界</span></span><br><span class="line">        help[i++] = arr[p1] &lt;= arr[p2] ? arr[p1++] : arr[p2++]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 下面两个while只会运行一个</span></span><br><span class="line">    <span class="keyword">while</span> (p1 &lt;= mid)&#123;  <span class="comment">// p2越界之后, 直接把arr[p1 ~ mid] 的值直接放到help中</span></span><br><span class="line">        help[i++] = arr[p1++]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(p2 &lt;= r)&#123;  <span class="comment">// p1越界后, 直接把arr[p2 ~ r] 的值直接放到help中</span></span><br><span class="line">        help[i++] = arr[p2++]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; help.length; i++)&#123;</span><br><span class="line">        arr[l + i] = help[i]  <span class="comment">// 把help中的值,拷贝到对应的arr中, 所以 l + i</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// console.log(`第$&#123;count++&#125;次: $&#123;arr&#125;`)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对数器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateRandomArray</span>(<span class="params">maxSize, maxValue</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arr = []</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">Math</span>.random()* (maxSize + <span class="number">1</span>); i++)&#123;</span><br><span class="line">        arr.push((<span class="built_in">Math</span>.random() * (maxValue + <span class="number">1</span>)) - (<span class="built_in">Math</span>.random() * (maxValue +<span class="number">1</span> )))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(arr)</span><br><span class="line">    <span class="built_in">console</span>.log(arr.length)</span><br><span class="line">    <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       

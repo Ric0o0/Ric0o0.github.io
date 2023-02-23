@@ -183,44 +183,7 @@
 <li><p>如果最后一个数 &lt; value  –&gt;  minArr就要push这个新的value .</p>
 </li>
 </ol>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 取出栈中的最小值, 要求时间复杂度O(1)
-class MyStack1 &#123;
-    constructor () &#123;
-        this.arr &#x3D; [];
-        this.minArr &#x3D; [];
-    &#125;
-    push(value)&#123;
-        if (this.arr.length &#x3D;&#x3D;&#x3D; 0)&#123;
-            this.minArr.push(value)
-        &#125; else if (value &lt; this.getMin())&#123;  &#x2F;&#x2F; 当前值小于最小栈顶的值
-            this.minArr.push(value)
-        &#125; else &#123;
-            this.minArr.push(this.minArr[this.minArr.length-1])
-        &#125;
-        this.arr.push(value)
-    &#125;
-    pop()&#123;
-        if (this.arr.length &#x3D;&#x3D;&#x3D; 0)&#123;
-            console.log(&#39;空表!&#39;)
-            return -1
-        &#125;
-        this.minArr.pop()  &#x2F;&#x2F; 弹出就是两个一起弹
-        this.arr.pop()
-    &#125;
-    getMin()&#123;
-        return this.minArr[this.minArr.length-1]
-    &#125;
-&#125;
-let ms &#x3D; new MyStack1()
-ms.push(5)
-ms.push(6)
-ms.push(6)
-ms.push(4)
-ms.push(4)
-ms.push(8)
-&#x2F;&#x2F; ms.pop()
-console.log(ms.getMin())
-console.log(ms)</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取出栈中的最小值, 要求时间复杂度O(1)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStack1</span> </span>&#123;</span><br><span class="line">    <span class="title">constructor</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.arr = [];</span><br><span class="line">        <span class="built_in">this</span>.minArr = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">push</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.arr.length === <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">this</span>.minArr.push(value)</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (value &lt; <span class="built_in">this</span>.getMin())&#123;  <span class="comment">// 当前值小于最小栈顶的值</span></span><br><span class="line">            <span class="built_in">this</span>.minArr.push(value)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.minArr.push(<span class="built_in">this</span>.minArr[<span class="built_in">this</span>.minArr.length-<span class="number">1</span>])</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.arr.push(value)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">pop</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.arr.length === <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;空表!&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.minArr.pop()  <span class="comment">// 弹出就是两个一起弹</span></span><br><span class="line">        <span class="built_in">this</span>.arr.pop()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getMin</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.minArr[<span class="built_in">this</span>.minArr.length-<span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> ms = <span class="keyword">new</span> MyStack1()</span><br><span class="line">ms.push(<span class="number">5</span>)</span><br><span class="line">ms.push(<span class="number">6</span>)</span><br><span class="line">ms.push(<span class="number">6</span>)</span><br><span class="line">ms.push(<span class="number">4</span>)</span><br><span class="line">ms.push(<span class="number">4</span>)</span><br><span class="line">ms.push(<span class="number">8</span>)</span><br><span class="line"><span class="comment">// ms.pop()</span></span><br><span class="line"><span class="built_in">console</span>.log(ms.getMin())</span><br><span class="line"><span class="built_in">console</span>.log(ms)</span><br></pre></td></tr></table></figure>
 
 
       

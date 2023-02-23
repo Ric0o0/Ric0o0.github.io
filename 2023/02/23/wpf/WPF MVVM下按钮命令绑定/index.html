@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>WPF MVVM下按钮命令绑定 | Rico&#39;s blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="WPF MVVM框架下按钮命令绑定需求：  在输入框内无内容时，Click me按钮不可用 点击Close Window按钮关闭窗口  效果： 目录结构：      app.xaml中 StartupUri&#x3D;&quot;.&#x2F;View&#x2F;MainWindow.xaml&quot; MainWindow.xaml &lt;Window x:Class&#x3D;&quot;MVVMTest1.MainW">
+  <meta name="description" content="WPF MVVM框架下按钮命令绑定需求：  在输入框内无内容时，Click me按钮不可用 点击Close Window按钮关闭窗口  效果： 目录结构：      app.xaml中 StartupUri&#x3D;&quot;.&#x2F;View&#x2F;MainWindow.xaml&quot; MainWindow.xaml 12345678910111213141516171819202122&lt;Window">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WPF MVVM下按钮命令绑定">
 <meta property="og:url" content="http://example.com/2023/02/23/wpf/WPF%20MVVM%E4%B8%8B%E6%8C%89%E9%92%AE%E5%91%BD%E4%BB%A4%E7%BB%91%E5%AE%9A/index.html">
 <meta property="og:site_name" content="Rico&#39;s blogs">
-<meta property="og:description" content="WPF MVVM框架下按钮命令绑定需求：  在输入框内无内容时，Click me按钮不可用 点击Close Window按钮关闭窗口  效果： 目录结构：      app.xaml中 StartupUri&#x3D;&quot;.&#x2F;View&#x2F;MainWindow.xaml&quot; MainWindow.xaml &lt;Window x:Class&#x3D;&quot;MVVMTest1.MainW">
+<meta property="og:description" content="WPF MVVM框架下按钮命令绑定需求：  在输入框内无内容时，Click me按钮不可用 点击Close Window按钮关闭窗口  效果： 目录结构：      app.xaml中 StartupUri&#x3D;&quot;.&#x2F;View&#x2F;MainWindow.xaml&quot; MainWindow.xaml 12345678910111213141516171819202122&lt;Window">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/wpf_mvvm_1.png">
 <meta property="og:image" content="http://example.com/img/content1.png">
@@ -186,108 +186,20 @@
 
 <p>app.xaml中 <code>StartupUri=&quot;./View/MainWindow.xaml&quot;</code></p>
 <p>MainWindow.xaml</p>
-<pre class="line-numbers language-xaml" data-language="xaml"><code class="language-xaml">&lt;Window x:Class&#x3D;&quot;MVVMTest1.MainWindow&quot;
-        xmlns&#x3D;&quot;http:&#x2F;&#x2F;schemas.microsoft.com&#x2F;winfx&#x2F;2006&#x2F;xaml&#x2F;presentation&quot;
-        xmlns:x&#x3D;&quot;http:&#x2F;&#x2F;schemas.microsoft.com&#x2F;winfx&#x2F;2006&#x2F;xaml&quot;
-        xmlns:d&#x3D;&quot;http:&#x2F;&#x2F;schemas.microsoft.com&#x2F;expression&#x2F;blend&#x2F;2008&quot;
-        xmlns:mc&#x3D;&quot;http:&#x2F;&#x2F;schemas.openxmlformats.org&#x2F;markup-compatibility&#x2F;2006&quot;
-        xmlns:local&#x3D;&quot;clr-namespace:MVVMTest1&quot;
-        xmlns:vm &#x3D;&quot;clr-namespace:MVVMTest1.ViewModel&quot;  ViewModel命名空间
-        mc:Ignorable&#x3D;&quot;d&quot;
-        Title&#x3D;&quot;MainWindow&quot; Height&#x3D;&quot;450&quot; Width&#x3D;&quot;800&quot;
-        Name&#x3D;&quot;window&quot;
-        &gt;
-    &lt;Window.DataContext&gt;
-        &lt;vm:MainWindowViewModel&#x2F;&gt;  datacontext
-    &lt;&#x2F;Window.DataContext&gt;
-    &lt;StackPanel HorizontalAlignment&#x3D;&quot;Center&quot; VerticalAlignment&#x3D;&quot;Center&quot; TextElement.FontSize&#x3D;&quot;32&quot;&gt;
-        &lt;TextBox Width&#x3D;&quot;300&quot; Height&#x3D;&quot;40&quot; Text&#x3D;&quot;&#123;Binding Text, UpdateSourceTrigger&#x3D;PropertyChanged&#125;&quot;&#x2F;&gt;
-        &lt;Button Width&#x3D;&quot;150&quot; Height&#x3D;&quot;50&quot; Margin&#x3D;&quot;0,20,0,0&quot; Content&#x3D;&quot;click me&quot; Command&#x3D;&quot;&#123;Binding ClickCommand&#125;&quot;&#x2F;&gt;
-        &lt;Button Content&#x3D;&quot;Close Window&quot; 
-                Command&#x3D;&quot;&#123;Binding CloseWindowCommand&#125;&quot; 
-                CommandParameter&#x3D;&quot;&#123;Binding ElementName&#x3D;window&#125;&quot;&#x2F;&gt;
-    &lt;&#x2F;StackPanel&gt;
-&lt;&#x2F;Window&gt;</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;Window x:Class=&quot;MVVMTest1.MainWindow&quot;</span><br><span class="line">        xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span><br><span class="line">        xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><br><span class="line">        xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;</span><br><span class="line">        xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;</span><br><span class="line">        xmlns:local=&quot;clr-namespace:MVVMTest1&quot;</span><br><span class="line">        xmlns:vm =&quot;clr-namespace:MVVMTest1.ViewModel&quot;  ViewModel命名空间</span><br><span class="line">        mc:Ignorable=&quot;d&quot;</span><br><span class="line">        Title=&quot;MainWindow&quot; Height=&quot;450&quot; Width=&quot;800&quot;</span><br><span class="line">        Name=&quot;window&quot;</span><br><span class="line">        &gt;</span><br><span class="line">    &lt;Window.DataContext&gt;</span><br><span class="line">        &lt;vm:MainWindowViewModel/&gt;  datacontext</span><br><span class="line">    &lt;/Window.DataContext&gt;</span><br><span class="line">    &lt;StackPanel HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; TextElement.FontSize=&quot;32&quot;&gt;</span><br><span class="line">        &lt;TextBox Width=&quot;300&quot; Height=&quot;40&quot; Text=&quot;&#123;Binding Text, UpdateSourceTrigger=PropertyChanged&#125;&quot;/&gt;</span><br><span class="line">        &lt;Button Width=&quot;150&quot; Height=&quot;50&quot; Margin=&quot;0,20,0,0&quot; Content=&quot;click me&quot; Command=&quot;&#123;Binding ClickCommand&#125;&quot;/&gt;</span><br><span class="line">        &lt;Button Content=&quot;Close Window&quot; </span><br><span class="line">                Command=&quot;&#123;Binding CloseWindowCommand&#125;&quot; </span><br><span class="line">                CommandParameter=&quot;&#123;Binding ElementName=window&#125;&quot;/&gt;</span><br><span class="line">    &lt;/StackPanel&gt;</span><br><span class="line">&lt;/Window&gt;</span><br></pre></td></tr></table></figure>
 
 <p>MainWindow.xaml.cs</p>
-<pre class="line-numbers language-csharp" data-language="csharp" data-start="1" data-line="" data-line-offset="0"><code class="language-csharp">
-public partial class MainWindow : Window
-    &#123;
-        public MainWindow()
-        &#123;
-            InitializeComponent();
-        &#125;
-    &#125;
-</code></pre>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">partial</span> <span class="keyword">class</span> <span class="title">MainWindow</span> : <span class="title">Window</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MainWindow</span>(<span class="params"></span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            InitializeComponent();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>BaseCommand.cs</p>
-<pre class="line-numbers language-csharp" data-language="csharp" data-start="1" data-line="" data-line-offset="0"><code class="language-csharp">public class BaseCommand : ICommand
-    &#123;
-        public event EventHandler CanExecuteChanged  &#x2F;&#x2F; 不加下面这俩 add remove，CanExecute只会触发一次！！！
-        &#123;
-            add &#123; CommandManager.RequerySuggested +&#x3D; value; &#125;
-            remove &#123; CommandManager.RequerySuggested -&#x3D; value; &#125;
-        &#125;
-
-        public bool CanExecute(object parameter)
-        &#123;
-            return DoCanExecute?.Invoke(parameter) &#x3D;&#x3D; true;
-        &#125;
-
-        public void Execute(object parameter)
-        &#123;
-            DoExecute?.Invoke(parameter);
-        &#125;
-
-        public Action&lt;object&gt; DoExecute &#123; get; set; &#125;
-
-        public Func&lt;object, bool&gt; DoCanExecute &#123; get; set; &#125;
-    &#125;</code></pre>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BaseCommand</span> : <span class="title">ICommand</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">event</span> EventHandler CanExecuteChanged  <span class="comment">// 不加下面这俩 add remove，CanExecute只会触发一次！！！</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">add</span> &#123; CommandManager.RequerySuggested += <span class="keyword">value</span>; &#125;</span><br><span class="line">            <span class="keyword">remove</span> &#123; CommandManager.RequerySuggested -= <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">CanExecute</span>(<span class="params"><span class="built_in">object</span> parameter</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> DoCanExecute?.Invoke(parameter) == <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Execute</span>(<span class="params"><span class="built_in">object</span> parameter</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            DoExecute?.Invoke(parameter);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> Action&lt;<span class="built_in">object</span>&gt; DoExecute &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> Func&lt;<span class="built_in">object</span>, <span class="built_in">bool</span>&gt; DoCanExecute &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 
 <p>BaseViewModel.cs</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">public class BaseViewModel : INotifyPropertyChanged
-    &#123;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged([CallerMemberName] string propName &#x3D; &quot;&quot;)
-        &#123;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
-        &#125;
-    &#125;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">BaseViewModel</span> : <span class="title">INotifyPropertyChanged</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line"></span><br><span class="line">        public event PropertyChangedEventHandler PropertyChanged;</span><br><span class="line"></span><br><span class="line">        public <span class="keyword">void</span> <span class="function"><span class="title">OnPropertyChanged</span>(<span class="params">[CallerMemberName] string propName = <span class="string">&quot;&quot;</span></span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            PropertyChanged?.Invoke(<span class="built_in">this</span>, <span class="keyword">new</span> PropertyChangedEventArgs(propName));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>MainWindowViewModel.cs</p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public class MainWindowViewModel : BaseViewModel
-    &#123;
-        private string text;
-
-        public string Text
-        &#123;
-            get &#123; return text; &#125;
-            set &#123; text &#x3D; value; OnPropertyChanged(); &#125;
-        &#125;
-
-        public BaseCommand ClickCommand &#123; get; set; &#125;
-        public BaseCommand CloseWindowCommand &#123; get; set; &#125;
-
-        public MainWindowViewModel()
-        &#123;
-            ClickCommand &#x3D; new BaseCommand();
-            ClickCommand.DoCanExecute &#x3D; new Func&lt;object, bool&gt;((o) &#x3D;&gt; !string.IsNullOrEmpty(Text)); ;
-            ClickCommand.DoExecute &#x3D; new Action&lt;object&gt;((o) &#x3D;&gt;
-            &#123;
-                Text &#x3D; &quot;1234&quot;;
-            &#125;);
-
-            CloseWindowCommand &#x3D; new BaseCommand();
-            CloseWindowCommand.DoCanExecute &#x3D; new Func&lt;object, bool&gt;((o)&#x3D;&gt; true);
-            CloseWindowCommand.DoExecute &#x3D; new Action&lt;object&gt;((o) &#x3D;&gt;
-            &#123;
-                (o as Window).Close();
-            &#125;);
-        &#125;
-    &#125;</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class MainWindowViewModel : BaseViewModel</span><br><span class="line">    &#123;</span><br><span class="line">        private string text;</span><br><span class="line"></span><br><span class="line">        public string Text</span><br><span class="line">        &#123;</span><br><span class="line">            get &#123; return text; &#125;</span><br><span class="line">            set &#123; text = value; OnPropertyChanged(); &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public BaseCommand ClickCommand &#123; get; set; &#125;</span><br><span class="line">        public BaseCommand CloseWindowCommand &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line">        public MainWindowViewModel()</span><br><span class="line">        &#123;</span><br><span class="line">            ClickCommand = new BaseCommand();</span><br><span class="line">            ClickCommand.DoCanExecute = new Func&lt;object, bool&gt;((o) =&gt; !string.IsNullOrEmpty(Text)); ;</span><br><span class="line">            ClickCommand.DoExecute = new Action&lt;object&gt;((o) =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Text = &quot;1234&quot;;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            CloseWindowCommand = new BaseCommand();</span><br><span class="line">            CloseWindowCommand.DoCanExecute = new Func&lt;object, bool&gt;((o)=&gt; true);</span><br><span class="line">            CloseWindowCommand.DoExecute = new Action&lt;object&gt;((o) =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                (o as Window).Close();</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 
 

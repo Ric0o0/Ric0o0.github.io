@@ -181,108 +181,20 @@
 
 <p>app.xaml中 <code>StartupUri=&quot;./View/MainWindow.xaml&quot;</code></p>
 <p>MainWindow.xaml</p>
-<pre class="line-numbers language-xaml" data-language="xaml"><code class="language-xaml">&lt;Window x:Class&#x3D;&quot;MVVMTest1.MainWindow&quot;
-        xmlns&#x3D;&quot;http:&#x2F;&#x2F;schemas.microsoft.com&#x2F;winfx&#x2F;2006&#x2F;xaml&#x2F;presentation&quot;
-        xmlns:x&#x3D;&quot;http:&#x2F;&#x2F;schemas.microsoft.com&#x2F;winfx&#x2F;2006&#x2F;xaml&quot;
-        xmlns:d&#x3D;&quot;http:&#x2F;&#x2F;schemas.microsoft.com&#x2F;expression&#x2F;blend&#x2F;2008&quot;
-        xmlns:mc&#x3D;&quot;http:&#x2F;&#x2F;schemas.openxmlformats.org&#x2F;markup-compatibility&#x2F;2006&quot;
-        xmlns:local&#x3D;&quot;clr-namespace:MVVMTest1&quot;
-        xmlns:vm &#x3D;&quot;clr-namespace:MVVMTest1.ViewModel&quot;  ViewModel命名空间
-        mc:Ignorable&#x3D;&quot;d&quot;
-        Title&#x3D;&quot;MainWindow&quot; Height&#x3D;&quot;450&quot; Width&#x3D;&quot;800&quot;
-        Name&#x3D;&quot;window&quot;
-        &gt;
-    &lt;Window.DataContext&gt;
-        &lt;vm:MainWindowViewModel&#x2F;&gt;  datacontext
-    &lt;&#x2F;Window.DataContext&gt;
-    &lt;StackPanel HorizontalAlignment&#x3D;&quot;Center&quot; VerticalAlignment&#x3D;&quot;Center&quot; TextElement.FontSize&#x3D;&quot;32&quot;&gt;
-        &lt;TextBox Width&#x3D;&quot;300&quot; Height&#x3D;&quot;40&quot; Text&#x3D;&quot;&#123;Binding Text, UpdateSourceTrigger&#x3D;PropertyChanged&#125;&quot;&#x2F;&gt;
-        &lt;Button Width&#x3D;&quot;150&quot; Height&#x3D;&quot;50&quot; Margin&#x3D;&quot;0,20,0,0&quot; Content&#x3D;&quot;click me&quot; Command&#x3D;&quot;&#123;Binding ClickCommand&#125;&quot;&#x2F;&gt;
-        &lt;Button Content&#x3D;&quot;Close Window&quot; 
-                Command&#x3D;&quot;&#123;Binding CloseWindowCommand&#125;&quot; 
-                CommandParameter&#x3D;&quot;&#123;Binding ElementName&#x3D;window&#125;&quot;&#x2F;&gt;
-    &lt;&#x2F;StackPanel&gt;
-&lt;&#x2F;Window&gt;</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;Window x:Class=&quot;MVVMTest1.MainWindow&quot;</span><br><span class="line">        xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span><br><span class="line">        xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><br><span class="line">        xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;</span><br><span class="line">        xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;</span><br><span class="line">        xmlns:local=&quot;clr-namespace:MVVMTest1&quot;</span><br><span class="line">        xmlns:vm =&quot;clr-namespace:MVVMTest1.ViewModel&quot;  ViewModel命名空间</span><br><span class="line">        mc:Ignorable=&quot;d&quot;</span><br><span class="line">        Title=&quot;MainWindow&quot; Height=&quot;450&quot; Width=&quot;800&quot;</span><br><span class="line">        Name=&quot;window&quot;</span><br><span class="line">        &gt;</span><br><span class="line">    &lt;Window.DataContext&gt;</span><br><span class="line">        &lt;vm:MainWindowViewModel/&gt;  datacontext</span><br><span class="line">    &lt;/Window.DataContext&gt;</span><br><span class="line">    &lt;StackPanel HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; TextElement.FontSize=&quot;32&quot;&gt;</span><br><span class="line">        &lt;TextBox Width=&quot;300&quot; Height=&quot;40&quot; Text=&quot;&#123;Binding Text, UpdateSourceTrigger=PropertyChanged&#125;&quot;/&gt;</span><br><span class="line">        &lt;Button Width=&quot;150&quot; Height=&quot;50&quot; Margin=&quot;0,20,0,0&quot; Content=&quot;click me&quot; Command=&quot;&#123;Binding ClickCommand&#125;&quot;/&gt;</span><br><span class="line">        &lt;Button Content=&quot;Close Window&quot; </span><br><span class="line">                Command=&quot;&#123;Binding CloseWindowCommand&#125;&quot; </span><br><span class="line">                CommandParameter=&quot;&#123;Binding ElementName=window&#125;&quot;/&gt;</span><br><span class="line">    &lt;/StackPanel&gt;</span><br><span class="line">&lt;/Window&gt;</span><br></pre></td></tr></table></figure>
 
 <p>MainWindow.xaml.cs</p>
-<pre class="line-numbers language-csharp" data-language="csharp" data-start="1" data-line="" data-line-offset="0"><code class="language-csharp">
-public partial class MainWindow : Window
-    &#123;
-        public MainWindow()
-        &#123;
-            InitializeComponent();
-        &#125;
-    &#125;
-</code></pre>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">partial</span> <span class="keyword">class</span> <span class="title">MainWindow</span> : <span class="title">Window</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MainWindow</span>(<span class="params"></span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            InitializeComponent();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>BaseCommand.cs</p>
-<pre class="line-numbers language-csharp" data-language="csharp" data-start="1" data-line="" data-line-offset="0"><code class="language-csharp">public class BaseCommand : ICommand
-    &#123;
-        public event EventHandler CanExecuteChanged  &#x2F;&#x2F; 不加下面这俩 add remove，CanExecute只会触发一次！！！
-        &#123;
-            add &#123; CommandManager.RequerySuggested +&#x3D; value; &#125;
-            remove &#123; CommandManager.RequerySuggested -&#x3D; value; &#125;
-        &#125;
-
-        public bool CanExecute(object parameter)
-        &#123;
-            return DoCanExecute?.Invoke(parameter) &#x3D;&#x3D; true;
-        &#125;
-
-        public void Execute(object parameter)
-        &#123;
-            DoExecute?.Invoke(parameter);
-        &#125;
-
-        public Action&lt;object&gt; DoExecute &#123; get; set; &#125;
-
-        public Func&lt;object, bool&gt; DoCanExecute &#123; get; set; &#125;
-    &#125;</code></pre>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BaseCommand</span> : <span class="title">ICommand</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">event</span> EventHandler CanExecuteChanged  <span class="comment">// 不加下面这俩 add remove，CanExecute只会触发一次！！！</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">add</span> &#123; CommandManager.RequerySuggested += <span class="keyword">value</span>; &#125;</span><br><span class="line">            <span class="keyword">remove</span> &#123; CommandManager.RequerySuggested -= <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">CanExecute</span>(<span class="params"><span class="built_in">object</span> parameter</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> DoCanExecute?.Invoke(parameter) == <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Execute</span>(<span class="params"><span class="built_in">object</span> parameter</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            DoExecute?.Invoke(parameter);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> Action&lt;<span class="built_in">object</span>&gt; DoExecute &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> Func&lt;<span class="built_in">object</span>, <span class="built_in">bool</span>&gt; DoCanExecute &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 
 <p>BaseViewModel.cs</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">public class BaseViewModel : INotifyPropertyChanged
-    &#123;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged([CallerMemberName] string propName &#x3D; &quot;&quot;)
-        &#123;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
-        &#125;
-    &#125;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">BaseViewModel</span> : <span class="title">INotifyPropertyChanged</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line"></span><br><span class="line">        public event PropertyChangedEventHandler PropertyChanged;</span><br><span class="line"></span><br><span class="line">        public <span class="keyword">void</span> <span class="function"><span class="title">OnPropertyChanged</span>(<span class="params">[CallerMemberName] string propName = <span class="string">&quot;&quot;</span></span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            PropertyChanged?.Invoke(<span class="built_in">this</span>, <span class="keyword">new</span> PropertyChangedEventArgs(propName));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>MainWindowViewModel.cs</p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public class MainWindowViewModel : BaseViewModel
-    &#123;
-        private string text;
-
-        public string Text
-        &#123;
-            get &#123; return text; &#125;
-            set &#123; text &#x3D; value; OnPropertyChanged(); &#125;
-        &#125;
-
-        public BaseCommand ClickCommand &#123; get; set; &#125;
-        public BaseCommand CloseWindowCommand &#123; get; set; &#125;
-
-        public MainWindowViewModel()
-        &#123;
-            ClickCommand &#x3D; new BaseCommand();
-            ClickCommand.DoCanExecute &#x3D; new Func&lt;object, bool&gt;((o) &#x3D;&gt; !string.IsNullOrEmpty(Text)); ;
-            ClickCommand.DoExecute &#x3D; new Action&lt;object&gt;((o) &#x3D;&gt;
-            &#123;
-                Text &#x3D; &quot;1234&quot;;
-            &#125;);
-
-            CloseWindowCommand &#x3D; new BaseCommand();
-            CloseWindowCommand.DoCanExecute &#x3D; new Func&lt;object, bool&gt;((o)&#x3D;&gt; true);
-            CloseWindowCommand.DoExecute &#x3D; new Action&lt;object&gt;((o) &#x3D;&gt;
-            &#123;
-                (o as Window).Close();
-            &#125;);
-        &#125;
-    &#125;</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class MainWindowViewModel : BaseViewModel</span><br><span class="line">    &#123;</span><br><span class="line">        private string text;</span><br><span class="line"></span><br><span class="line">        public string Text</span><br><span class="line">        &#123;</span><br><span class="line">            get &#123; return text; &#125;</span><br><span class="line">            set &#123; text = value; OnPropertyChanged(); &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public BaseCommand ClickCommand &#123; get; set; &#125;</span><br><span class="line">        public BaseCommand CloseWindowCommand &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line">        public MainWindowViewModel()</span><br><span class="line">        &#123;</span><br><span class="line">            ClickCommand = new BaseCommand();</span><br><span class="line">            ClickCommand.DoCanExecute = new Func&lt;object, bool&gt;((o) =&gt; !string.IsNullOrEmpty(Text)); ;</span><br><span class="line">            ClickCommand.DoExecute = new Action&lt;object&gt;((o) =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Text = &quot;1234&quot;;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            CloseWindowCommand = new BaseCommand();</span><br><span class="line">            CloseWindowCommand.DoCanExecute = new Func&lt;object, bool&gt;((o)=&gt; true);</span><br><span class="line">            CloseWindowCommand.DoExecute = new Action&lt;object&gt;((o) =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                (o as Window).Close();</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -360,69 +272,7 @@ public partial class MainWindow : Window
 <li> 直接把 3 4 添加进help</li>
 <li>让arr[l + i] = help[i] , 把help中的值全部拷贝给arr, 但是此时是以最终形式为例(l = 0), 如果此时要拷贝的是arr的右半部分, 必须得是 l + i , 否则就乱了</li>
 </ol>
-<h4 id="从下一级不断向上一级排序-上一级排序是在下一级已经排好的基础上进行排序-所以当p1或p2越界时-可以直接无脑把剩下值的拷贝进help"><a href="#从下一级不断向上一级排序-上一级排序是在下一级已经排好的基础上进行排序-所以当p1或p2越界时-可以直接无脑把剩下值的拷贝进help" class="headerlink" title="从下一级不断向上一级排序, 上一级排序是在下一级已经排好的基础上进行排序, 所以当p1或p2越界时, 可以直接无脑把剩下值的拷贝进help"></a>从下一级不断向上一级排序, 上一级排序是在下一级已经排好的基础上进行排序, 所以当p1或p2越界时, 可以直接无脑把剩下值的拷贝进help</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 递归版本
-&#x2F;*
-*       [3 4 2 1]
-*        &#x2F;     \
-*      3 4     2 1
-*      &#x2F; \     &#x2F;  \
-*     3   4    2   1
-* *&#x2F;
-&#x2F;&#x2F; let arr &#x3D; [3, 4, 2, 1]
-let arr &#x3D; generateRandomArray(1000000, 100000)
-let time0 &#x3D; new Date()
-rank(arr, 0, arr.length-1)
-let time1 &#x3D; new Date()
-console.log(arr)
-console.log(time1 - time0 + &#39;ms&#39;)
-
-function rank(arr, l, r)&#123;
-    return process(arr, l, r)
-&#125;
-
-function process (arr, l, r) &#123;
-    if (l &#x3D;&#x3D;&#x3D; r)&#123; &#x2F;&#x2F; base case
-        return;
-    &#125;
-    let mid &#x3D; l + ((r - l) &gt;&gt; 1)
-    process(arr, l, mid)  &#x2F;&#x2F; 左侧排序
-    process(arr, mid+1, r)  &#x2F;&#x2F; 右侧排序
-    merge(arr, l, mid, r)  &#x2F;&#x2F; 左右全部排序
-    return arr
-&#125;
-
-function merge (arr, l, mid, r) &#123;
-    let p1 &#x3D; l;  &#x2F;&#x2F; 左侧指针, 负责左侧(l - mid)
-    let p2 &#x3D; mid + 1  &#x2F;&#x2F; 右侧指针, 负责右侧
-    let help &#x3D; new Array(r-l+1)  &#x2F;&#x2F; 辅助数组, 长度为规定的r - l +1 
-    let i &#x3D; 0  &#x2F;&#x2F; 辅助索引
-    while (p1 &lt;&#x3D; mid &amp;&amp; p2 &lt;&#x3D; r)&#123;  &#x2F;&#x2F; 只有p1 和 p2都不越界时才有效
-        &#x2F;&#x2F; 如果把p1放入help中, p1++, 否则p2++  p1&#x2F;p2一次只加一个, 最终一定有一个先越界
-        help[i++] &#x3D; arr[p1] &lt;&#x3D; arr[p2] ? arr[p1++] : arr[p2++]
-    &#125;
-    &#x2F;&#x2F; 下面两个while只会运行一个
-    while (p1 &lt;&#x3D; mid)&#123;  &#x2F;&#x2F; p2越界之后, 直接把arr[p1 ~ mid] 的值直接放到help中
-        help[i++] &#x3D; arr[p1++]
-    &#125;
-    while(p2 &lt;&#x3D; r)&#123;  &#x2F;&#x2F; p1越界后, 直接把arr[p2 ~ r] 的值直接放到help中
-        help[i++] &#x3D; arr[p2++]
-    &#125;
-    for (let i &#x3D; 0; i &lt; help.length; i++)&#123;
-        arr[l + i] &#x3D; help[i]  &#x2F;&#x2F; 把help中的值,拷贝到对应的arr中, 所以 l + i
-    &#125;
-    &#x2F;&#x2F; console.log(&#96;第$&#123;count++&#125;次: $&#123;arr&#125;&#96;)
-&#125;
-
-&#x2F;&#x2F; 对数器
-function generateRandomArray(maxSize, maxValue) &#123;
-    let arr &#x3D; []
-    for (let i &#x3D; 0; i &lt; Math.random()* (maxSize + 1); i++)&#123;
-        arr.push((Math.random() * (maxValue + 1)) - (Math.random() * (maxValue +1 )))
-    &#125;
-    console.log(arr)
-    console.log(arr.length)
-    return arr
-&#125;</code></pre>
+<h4 id="从下一级不断向上一级排序-上一级排序是在下一级已经排好的基础上进行排序-所以当p1或p2越界时-可以直接无脑把剩下值的拷贝进help"><a href="#从下一级不断向上一级排序-上一级排序是在下一级已经排好的基础上进行排序-所以当p1或p2越界时-可以直接无脑把剩下值的拷贝进help" class="headerlink" title="从下一级不断向上一级排序, 上一级排序是在下一级已经排好的基础上进行排序, 所以当p1或p2越界时, 可以直接无脑把剩下值的拷贝进help"></a>从下一级不断向上一级排序, 上一级排序是在下一级已经排好的基础上进行排序, 所以当p1或p2越界时, 可以直接无脑把剩下值的拷贝进help</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归版本</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*       [3 4 2 1]</span></span><br><span class="line"><span class="comment">*        /     \</span></span><br><span class="line"><span class="comment">*      3 4     2 1</span></span><br><span class="line"><span class="comment">*      / \     /  \</span></span><br><span class="line"><span class="comment">*     3   4    2   1</span></span><br><span class="line"><span class="comment">* */</span></span><br><span class="line"><span class="comment">// let arr = [3, 4, 2, 1]</span></span><br><span class="line"><span class="keyword">let</span> arr = generateRandomArray(<span class="number">1000000</span>, <span class="number">100000</span>)</span><br><span class="line"><span class="keyword">let</span> time0 = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">rank(arr, <span class="number">0</span>, arr.length-<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> time1 = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br><span class="line"><span class="built_in">console</span>.log(time1 - time0 + <span class="string">&#x27;ms&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">rank</span>(<span class="params">arr, l, r</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> process(arr, l, r)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span> (<span class="params">arr, l, r</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l === r)&#123; <span class="comment">// base case</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> mid = l + ((r - l) &gt;&gt; <span class="number">1</span>)</span><br><span class="line">    process(arr, l, mid)  <span class="comment">// 左侧排序</span></span><br><span class="line">    process(arr, mid+<span class="number">1</span>, r)  <span class="comment">// 右侧排序</span></span><br><span class="line">    merge(arr, l, mid, r)  <span class="comment">// 左右全部排序</span></span><br><span class="line">    <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span> (<span class="params">arr, l, mid, r</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> p1 = l;  <span class="comment">// 左侧指针, 负责左侧(l - mid)</span></span><br><span class="line">    <span class="keyword">let</span> p2 = mid + <span class="number">1</span>  <span class="comment">// 右侧指针, 负责右侧</span></span><br><span class="line">    <span class="keyword">let</span> help = <span class="keyword">new</span> <span class="built_in">Array</span>(r-l+<span class="number">1</span>)  <span class="comment">// 辅助数组, 长度为规定的r - l +1 </span></span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>  <span class="comment">// 辅助索引</span></span><br><span class="line">    <span class="keyword">while</span> (p1 &lt;= mid &amp;&amp; p2 &lt;= r)&#123;  <span class="comment">// 只有p1 和 p2都不越界时才有效</span></span><br><span class="line">        <span class="comment">// 如果把p1放入help中, p1++, 否则p2++  p1/p2一次只加一个, 最终一定有一个先越界</span></span><br><span class="line">        help[i++] = arr[p1] &lt;= arr[p2] ? arr[p1++] : arr[p2++]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 下面两个while只会运行一个</span></span><br><span class="line">    <span class="keyword">while</span> (p1 &lt;= mid)&#123;  <span class="comment">// p2越界之后, 直接把arr[p1 ~ mid] 的值直接放到help中</span></span><br><span class="line">        help[i++] = arr[p1++]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(p2 &lt;= r)&#123;  <span class="comment">// p1越界后, 直接把arr[p2 ~ r] 的值直接放到help中</span></span><br><span class="line">        help[i++] = arr[p2++]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; help.length; i++)&#123;</span><br><span class="line">        arr[l + i] = help[i]  <span class="comment">// 把help中的值,拷贝到对应的arr中, 所以 l + i</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// console.log(`第$&#123;count++&#125;次: $&#123;arr&#125;`)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对数器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateRandomArray</span>(<span class="params">maxSize, maxValue</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arr = []</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">Math</span>.random()* (maxSize + <span class="number">1</span>); i++)&#123;</span><br><span class="line">        arr.push((<span class="built_in">Math</span>.random() * (maxValue + <span class="number">1</span>)) - (<span class="built_in">Math</span>.random() * (maxValue +<span class="number">1</span> )))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(arr)</span><br><span class="line">    <span class="built_in">console</span>.log(arr.length)</span><br><span class="line">    <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -497,85 +347,7 @@ function generateRandomArray(maxSize, maxValue) &#123;
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="用栈实现队列-用队列实现栈"><a href="#用栈实现队列-用队列实现栈" class="headerlink" title="用栈实现队列, 用队列实现栈"></a>用栈实现队列, 用队列实现栈</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 用栈实现队列
-&#x2F;&#x2F; 队列: 先进先出
-class MyQueenByStack &#123;
-    &#x2F;&#x2F; 用两个栈实现队列, 栈特性先进后出, 用两个栈来倒
-    constructor () &#123;
-        this.pushStack &#x3D; [];
-        this.popStack &#x3D; [];
-    &#125;
-    push(val)&#123;
-        this.pushStack.push(val)
-    &#125;
-    
-    poll()&#123;
-        if (this.pushStack.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; this.popStack.length &#x3D;&#x3D;&#x3D; 0)&#123;
-            console.log(&#39;queue is empty!&#39;)
-            return -1
-        &#125;
-        this.pushToPop()
-        return this.popStack.pop()
-    &#125;
-    pushToPop() &#123;
-        &#x2F;&#x2F; 在需要弹出栈的时候, 将pushStack中的数据倒入popStack, 让先进的在第一个弹出来
-        &#x2F;&#x2F; 只有在popStack中没有元素的时候才能倒, 否则就乱套了
-        if (this.popStack.length &#x3D;&#x3D;&#x3D; 0) &#123;
-            while (this.pushStack.length !&#x3D;&#x3D; 0) &#123;
-                this.popStack.push(this.pushStack.pop())
-            &#125;
-        &#125;
-    &#125;
-    
-&#125;
-&#x2F;&#x2F; let mq &#x3D; new MyQueenByStack()
-&#x2F;&#x2F; mq.push(1)
-&#x2F;&#x2F; mq.push(2)
-&#x2F;&#x2F; mq.push(3)
-&#x2F;&#x2F; mq.push(4)
-&#x2F;&#x2F; console.log(mq.poll())
-&#x2F;&#x2F; console.log(mq.poll())
-
-
-&#x2F;&#x2F; 队列实现栈
-class MyStackByQueues &#123;
-    constructor () &#123;
-        this.dataQueue &#x3D; [];
-        this.helpQueue &#x3D; [];
-    &#125;
-    push(val)&#123;
-        this.dataQueue.push(val);
-    &#125;
-    &#x2F;&#x2F;两个队列
-    &#x2F;&#x2F;  data:  [5 4 3 2 1]  想把1提出来
-    &#x2F;&#x2F;  help:  []
-    
-    &#x2F;&#x2F;  要提出5
-    &#x2F;&#x2F;  data:  [1]
-    &#x2F;&#x2F;  help:  [5 4 3 2]
-    pop()&#123;
-        if (this.dataQueue.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; this.helpQueue.length &#x3D;&#x3D;&#x3D; 0)&#123;
-            throw new Error(&#39;stack is empty!&#39;)
-        &#125;
-        this.convert()
-        return this.helpQueue[0]
-    &#125;
-    convert()&#123;
-        while (this.dataQueue.length !&#x3D;&#x3D; 1)&#123;
-            this.helpQueue.push(this.dataQueue.shift())
-        &#125;
-        &#x2F;&#x2F; 让 dataQueue 永远是数据多的  ;  helpQueue 永远是要弹出的
-        
-        [this.dataQueue, this.helpQueue] &#x3D; [this.helpQueue, this.dataQueue] &#x2F;&#x2F; 数组互换
-    &#125;
-&#125;
-let mq &#x3D; new MyStackByQueues()
-mq.push(5)
-mq.push(4)
-mq.push(3)
-mq.push(2)
-mq.push(1)
-console.log(mq.pop())</code></pre>
+        <h2 id="用栈实现队列-用队列实现栈"><a href="#用栈实现队列-用队列实现栈" class="headerlink" title="用栈实现队列, 用队列实现栈"></a>用栈实现队列, 用队列实现栈</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用栈实现队列</span></span><br><span class="line"><span class="comment">// 队列: 先进先出</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyQueenByStack</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 用两个栈实现队列, 栈特性先进后出, 用两个栈来倒</span></span><br><span class="line">    <span class="title">constructor</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.pushStack = [];</span><br><span class="line">        <span class="built_in">this</span>.popStack = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">push</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.pushStack.push(val)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="title">poll</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.pushStack.length === <span class="number">0</span> &amp;&amp; <span class="built_in">this</span>.popStack.length === <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;queue is empty!&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.pushToPop()</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.popStack.pop()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">pushToPop</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="comment">// 在需要弹出栈的时候, 将pushStack中的数据倒入popStack, 让先进的在第一个弹出来</span></span><br><span class="line">        <span class="comment">// 只有在popStack中没有元素的时候才能倒, 否则就乱套了</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.popStack.length === <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="built_in">this</span>.pushStack.length !== <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="built_in">this</span>.popStack.push(<span class="built_in">this</span>.pushStack.pop())</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// let mq = new MyQueenByStack()</span></span><br><span class="line"><span class="comment">// mq.push(1)</span></span><br><span class="line"><span class="comment">// mq.push(2)</span></span><br><span class="line"><span class="comment">// mq.push(3)</span></span><br><span class="line"><span class="comment">// mq.push(4)</span></span><br><span class="line"><span class="comment">// console.log(mq.poll())</span></span><br><span class="line"><span class="comment">// console.log(mq.poll())</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 队列实现栈</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStackByQueues</span> </span>&#123;</span><br><span class="line">    <span class="title">constructor</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.dataQueue = [];</span><br><span class="line">        <span class="built_in">this</span>.helpQueue = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">push</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.dataQueue.push(val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//两个队列</span></span><br><span class="line">    <span class="comment">//  data:  [5 4 3 2 1]  想把1提出来</span></span><br><span class="line">    <span class="comment">//  help:  []</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  要提出5</span></span><br><span class="line">    <span class="comment">//  data:  [1]</span></span><br><span class="line">    <span class="comment">//  help:  [5 4 3 2]</span></span><br><span class="line">    <span class="function"><span class="title">pop</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.dataQueue.length === <span class="number">0</span> &amp;&amp; <span class="built_in">this</span>.helpQueue.length === <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;stack is empty!&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.convert()</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.helpQueue[<span class="number">0</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">convert</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="built_in">this</span>.dataQueue.length !== <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="built_in">this</span>.helpQueue.push(<span class="built_in">this</span>.dataQueue.shift())</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 让 dataQueue 永远是数据多的  ;  helpQueue 永远是要弹出的</span></span><br><span class="line">        </span><br><span class="line">        [<span class="built_in">this</span>.dataQueue, <span class="built_in">this</span>.helpQueue] = [<span class="built_in">this</span>.helpQueue, <span class="built_in">this</span>.dataQueue] <span class="comment">// 数组互换</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> mq = <span class="keyword">new</span> MyStackByQueues()</span><br><span class="line">mq.push(<span class="number">5</span>)</span><br><span class="line">mq.push(<span class="number">4</span>)</span><br><span class="line">mq.push(<span class="number">3</span>)</span><br><span class="line">mq.push(<span class="number">2</span>)</span><br><span class="line">mq.push(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">console</span>.log(mq.pop())</span><br></pre></td></tr></table></figure>
 
 
       
@@ -653,44 +425,7 @@ console.log(mq.pop())</code></pre>
 <li><p>如果最后一个数 &lt; value  –&gt;  minArr就要push这个新的value .</p>
 </li>
 </ol>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 取出栈中的最小值, 要求时间复杂度O(1)
-class MyStack1 &#123;
-    constructor () &#123;
-        this.arr &#x3D; [];
-        this.minArr &#x3D; [];
-    &#125;
-    push(value)&#123;
-        if (this.arr.length &#x3D;&#x3D;&#x3D; 0)&#123;
-            this.minArr.push(value)
-        &#125; else if (value &lt; this.getMin())&#123;  &#x2F;&#x2F; 当前值小于最小栈顶的值
-            this.minArr.push(value)
-        &#125; else &#123;
-            this.minArr.push(this.minArr[this.minArr.length-1])
-        &#125;
-        this.arr.push(value)
-    &#125;
-    pop()&#123;
-        if (this.arr.length &#x3D;&#x3D;&#x3D; 0)&#123;
-            console.log(&#39;空表!&#39;)
-            return -1
-        &#125;
-        this.minArr.pop()  &#x2F;&#x2F; 弹出就是两个一起弹
-        this.arr.pop()
-    &#125;
-    getMin()&#123;
-        return this.minArr[this.minArr.length-1]
-    &#125;
-&#125;
-let ms &#x3D; new MyStack1()
-ms.push(5)
-ms.push(6)
-ms.push(6)
-ms.push(4)
-ms.push(4)
-ms.push(8)
-&#x2F;&#x2F; ms.pop()
-console.log(ms.getMin())
-console.log(ms)</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取出栈中的最小值, 要求时间复杂度O(1)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStack1</span> </span>&#123;</span><br><span class="line">    <span class="title">constructor</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.arr = [];</span><br><span class="line">        <span class="built_in">this</span>.minArr = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">push</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.arr.length === <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">this</span>.minArr.push(value)</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (value &lt; <span class="built_in">this</span>.getMin())&#123;  <span class="comment">// 当前值小于最小栈顶的值</span></span><br><span class="line">            <span class="built_in">this</span>.minArr.push(value)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.minArr.push(<span class="built_in">this</span>.minArr[<span class="built_in">this</span>.minArr.length-<span class="number">1</span>])</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.arr.push(value)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">pop</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.arr.length === <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;空表!&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.minArr.pop()  <span class="comment">// 弹出就是两个一起弹</span></span><br><span class="line">        <span class="built_in">this</span>.arr.pop()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getMin</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.minArr[<span class="built_in">this</span>.minArr.length-<span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> ms = <span class="keyword">new</span> MyStack1()</span><br><span class="line">ms.push(<span class="number">5</span>)</span><br><span class="line">ms.push(<span class="number">6</span>)</span><br><span class="line">ms.push(<span class="number">6</span>)</span><br><span class="line">ms.push(<span class="number">4</span>)</span><br><span class="line">ms.push(<span class="number">4</span>)</span><br><span class="line">ms.push(<span class="number">8</span>)</span><br><span class="line"><span class="comment">// ms.pop()</span></span><br><span class="line"><span class="built_in">console</span>.log(ms.getMin())</span><br><span class="line"><span class="built_in">console</span>.log(ms)</span><br></pre></td></tr></table></figure>
 
 
       
@@ -754,207 +489,7 @@ console.log(ms)</code></pre>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 双向链表
-class Node &#123;
-    constructor (element) &#123;
-        this.element &#x3D; element &#x2F;&#x2F; 元素
-        this.last &#x3D; null &#x2F;&#x2F; 上一指针
-        this.next &#x3D; null &#x2F;&#x2F; 下一指针
-    &#125;
-&#125;
-
-class DoubleLinkedList &#123;
-    constructor () &#123;
-        this.head &#x3D; null  &#x2F;&#x2F; 链表头
-        this.tail &#x3D; null  &#x2F;&#x2F; 链表尾
-    &#125;
-    
-    &#x2F;&#x2F; 从头部添加
-    addFromHead (element) &#123;
-        let node &#x3D; new Node(element)
-        &#x2F;&#x2F; 判断this.head是否为空
-        if (this.head &#x3D;&#x3D;&#x3D; null) &#123;
-            this.head &#x3D; node
-            this.tail &#x3D; node
-        &#125; else &#123;
-            this.head.last &#x3D; node  &#x2F;&#x2F; 原来的头节点last指向新节点
-            node.next &#x3D; this.head &#x2F;&#x2F; 新节点的next指向原来的头节点
-            this.head &#x3D; node &#x2F;&#x2F; head指向新节点
-        &#125;
-    &#125;
-    
-    &#x2F;&#x2F; 从尾部添加
-    addFromTail (element) &#123;
-        let node &#x3D; new Node(element)
-        &#x2F;&#x2F; 判断this.head是否为空
-        if (this.head &#x3D;&#x3D;&#x3D; null) &#123;
-            this.head &#x3D; node
-            this.tail &#x3D; node
-        &#125; else &#123;
-            node.last &#x3D; this.tail
-            this.tail.next &#x3D; node
-            this.tail &#x3D; node
-        &#125;
-    &#125;
-    
-    &#x2F;&#x2F; 从头部弹出
-    popFromHead () &#123;
-        if (this.head &#x3D;&#x3D;&#x3D; null) &#123;
-            return null
-        &#125;
-        let popNode &#x3D; this.head
-        &#x2F;&#x2F; 只有一个节点
-        if (this.head &#x3D;&#x3D;&#x3D; this.tail) &#123;
-            this.head &#x3D; null
-            this.tail &#x3D; null
-        &#125; else &#123;
-            &#x2F;&#x2F; 正常情况
-            this.head &#x3D; popNode.next
-            this.head.last &#x3D; null
-            popNode.next &#x3D; null
-        &#125;
-        return popNode
-    &#125;
-    
-    &#x2F;&#x2F; 从尾部弹出
-    popFromTail () &#123;
-        if (this.tail &#x3D;&#x3D;&#x3D; null) &#123;
-            return null
-        &#125;
-        let popNode &#x3D; this.tail
-        if (this.head &#x3D;&#x3D;&#x3D; this.tail) &#123;
-            this.head &#x3D; null
-            this.tail &#x3D; null
-        &#125; else &#123;
-            this.tail &#x3D; popNode.last
-            this.tail.next &#x3D; null
-            popNode.last &#x3D; null
-        &#125;
-        return popNode
-    &#125;
-&#125;
-
-&#x2F;&#x2F; let dll &#x3D; new DoubleLinkedList()
-&#x2F;&#x2F; dll.addFromHead(3)
-&#x2F;&#x2F; dll.addFromHead(2)
-&#x2F;&#x2F; dll.addFromHead(1)
-&#x2F;&#x2F;
-&#x2F;&#x2F; dll.addFromTail(4)
-&#x2F;&#x2F; console.log(dll.popFromTail())
-&#x2F;&#x2F; console.dir(dll, &#123;depth: 100&#125;)
-
-class MyQueue &#123;
-    &#x2F;&#x2F; 先进先出  头进尾出
-    constructor () &#123;
-        this.length &#x3D; 0
-        this.queue &#x3D; new DoubleLinkedList()
-    &#125;
-    
-    push (element) &#123;
-        this.length++
-        this.queue.addFromHead(element)
-    &#125;
-    
-    pop () &#123;
-        this.length--
-        return this.queue.popFromTail()
-    &#125;
-    
-&#125;
-
-&#x2F;&#x2F; let mq &#x3D; new MyQueue();
-&#x2F;&#x2F; mq.push(1)
-&#x2F;&#x2F; mq.push(2)
-&#x2F;&#x2F; mq.push(3)
-&#x2F;&#x2F; console.log(mq.pop())
-&#x2F;&#x2F; console.dir(mq, &#123;depth: 100&#125;)
-
-class MyStack &#123;
-    constructor () &#123;
-        this.stack &#x3D; new DoubleLinkedList()
-        this.length &#x3D; 0
-    &#125;
-    
-    push (element) &#123;
-        this.stack.addFromHead(element)
-        this.length++
-    &#125;
-    
-    pop () &#123;
-        this.length--
-        return this.stack.popFromHead()
-    &#125;
-    
-&#125;
-
-&#x2F;&#x2F; let ms &#x3D; new MyStack();
-&#x2F;&#x2F; ms.push(1)
-&#x2F;&#x2F; ms.push(2)
-&#x2F;&#x2F; ms.push(3)
-&#x2F;&#x2F; console.log(ms.pop())
-&#x2F;&#x2F; console.dir(ms, &#123;depth: 100&#125;);
-
-class MyArray &#123;
-    constructor (limit) &#123;
-        this.limit &#x3D; limit
-        this.size &#x3D; 0
-        this.pushi &#x3D; 0  &#x2F;&#x2F; 添加索引
-        this.polli &#x3D; 0  &#x2F;&#x2F; 弹出索引
-        this.arr &#x3D; []
-    &#125;
-    
-    push (value) &#123;
-        if (this.size &#x3D;&#x3D;&#x3D; this.limit) &#123;
-            throw new Error(&#39;满了!&#39;)
-        &#125;
-        this.arr[this.pushi] &#x3D; value;
-        this.size++
-        this.pushi &#x3D; this.nextIndex(this.pushi);
-        &#x2F;&#x2F; console.log(&#39;pushi: &#39;, this.pushi, &#39;val: &#39; , value)
-        &#x2F;&#x2F; console.log(this.arr)
-    &#125;
-    
-    pop()&#123;
-        if (this.size &#x3D;&#x3D;&#x3D; 0)&#123;
-            throw new Error(&#39;空的!&#39;)
-        &#125;
-        let res &#x3D; this.arr[this.polli];
-        this.size--;
-        this.polli &#x3D; this.nextIndex(this.polli)
-        return console.log(res)
-    &#125;
-    
-    nextIndex (i) &#123;
-        return i &lt; this.limit - 1 ? i+1 : 0  &#x2F;&#x2F; 不能写i++
-    &#125;
-    printArr()&#123;
-        return console.log(this.arr)
-    &#125;
-    
-&#125;
-&#x2F;&#x2F; let marr &#x3D; new MyArray(5)
-&#x2F;&#x2F; marr.push(0)
-&#x2F;&#x2F; marr.push(1)
-&#x2F;&#x2F; marr.push(2)
-&#x2F;&#x2F; marr.push(3)
-&#x2F;&#x2F; marr.push(4)
-&#x2F;&#x2F; marr.pop()
-&#x2F;&#x2F; marr.pop()
-&#x2F;&#x2F; marr.pop()
-&#x2F;&#x2F; marr.pop()
-&#x2F;&#x2F; marr.pop()
-&#x2F;&#x2F; marr.push(5)
-&#x2F;&#x2F; marr.push(6)
-&#x2F;&#x2F; marr.push(7)
-&#x2F;&#x2F; marr.push(8)
-&#x2F;&#x2F; marr.push(9)
-&#x2F;&#x2F; marr.pop()
-&#x2F;&#x2F; marr.pop()
-&#x2F;&#x2F; marr.pop()
-&#x2F;&#x2F; marr.pop()
-&#x2F;&#x2F; marr.pop()
-&#x2F;&#x2F; marr.printArr()
-</code></pre>
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 双向链表</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">    <span class="title">constructor</span> (<span class="params">element</span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.element = element <span class="comment">// 元素</span></span><br><span class="line">        <span class="built_in">this</span>.last = <span class="literal">null</span> <span class="comment">// 上一指针</span></span><br><span class="line">        <span class="built_in">this</span>.next = <span class="literal">null</span> <span class="comment">// 下一指针</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoubleLinkedList</span> </span>&#123;</span><br><span class="line">    <span class="title">constructor</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.head = <span class="literal">null</span>  <span class="comment">// 链表头</span></span><br><span class="line">        <span class="built_in">this</span>.tail = <span class="literal">null</span>  <span class="comment">// 链表尾</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 从头部添加</span></span><br><span class="line">    addFromHead (element) &#123;</span><br><span class="line">        <span class="keyword">let</span> node = <span class="keyword">new</span> Node(element)</span><br><span class="line">        <span class="comment">// 判断this.head是否为空</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.head === <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.head = node</span><br><span class="line">            <span class="built_in">this</span>.tail = node</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.head.last = node  <span class="comment">// 原来的头节点last指向新节点</span></span><br><span class="line">            node.next = <span class="built_in">this</span>.head <span class="comment">// 新节点的next指向原来的头节点</span></span><br><span class="line">            <span class="built_in">this</span>.head = node <span class="comment">// head指向新节点</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 从尾部添加</span></span><br><span class="line">    addFromTail (element) &#123;</span><br><span class="line">        <span class="keyword">let</span> node = <span class="keyword">new</span> Node(element)</span><br><span class="line">        <span class="comment">// 判断this.head是否为空</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.head === <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.head = node</span><br><span class="line">            <span class="built_in">this</span>.tail = node</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            node.last = <span class="built_in">this</span>.tail</span><br><span class="line">            <span class="built_in">this</span>.tail.next = node</span><br><span class="line">            <span class="built_in">this</span>.tail = node</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 从头部弹出</span></span><br><span class="line">    popFromHead () &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.head === <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> popNode = <span class="built_in">this</span>.head</span><br><span class="line">        <span class="comment">// 只有一个节点</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.head === <span class="built_in">this</span>.tail) &#123;</span><br><span class="line">            <span class="built_in">this</span>.head = <span class="literal">null</span></span><br><span class="line">            <span class="built_in">this</span>.tail = <span class="literal">null</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 正常情况</span></span><br><span class="line">            <span class="built_in">this</span>.head = popNode.next</span><br><span class="line">            <span class="built_in">this</span>.head.last = <span class="literal">null</span></span><br><span class="line">            popNode.next = <span class="literal">null</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> popNode</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 从尾部弹出</span></span><br><span class="line">    popFromTail () &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.tail === <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> popNode = <span class="built_in">this</span>.tail</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.head === <span class="built_in">this</span>.tail) &#123;</span><br><span class="line">            <span class="built_in">this</span>.head = <span class="literal">null</span></span><br><span class="line">            <span class="built_in">this</span>.tail = <span class="literal">null</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.tail = popNode.last</span><br><span class="line">            <span class="built_in">this</span>.tail.next = <span class="literal">null</span></span><br><span class="line">            popNode.last = <span class="literal">null</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> popNode</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// let dll = new DoubleLinkedList()</span></span><br><span class="line"><span class="comment">// dll.addFromHead(3)</span></span><br><span class="line"><span class="comment">// dll.addFromHead(2)</span></span><br><span class="line"><span class="comment">// dll.addFromHead(1)</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// dll.addFromTail(4)</span></span><br><span class="line"><span class="comment">// console.log(dll.popFromTail())</span></span><br><span class="line"><span class="comment">// console.dir(dll, &#123;depth: 100&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyQueue</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 先进先出  头进尾出</span></span><br><span class="line">    <span class="title">constructor</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.length = <span class="number">0</span></span><br><span class="line">        <span class="built_in">this</span>.queue = <span class="keyword">new</span> DoubleLinkedList()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    push (element) &#123;</span><br><span class="line">        <span class="built_in">this</span>.length++</span><br><span class="line">        <span class="built_in">this</span>.queue.addFromHead(element)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    pop () &#123;</span><br><span class="line">        <span class="built_in">this</span>.length--</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.queue.popFromTail()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// let mq = new MyQueue();</span></span><br><span class="line"><span class="comment">// mq.push(1)</span></span><br><span class="line"><span class="comment">// mq.push(2)</span></span><br><span class="line"><span class="comment">// mq.push(3)</span></span><br><span class="line"><span class="comment">// console.log(mq.pop())</span></span><br><span class="line"><span class="comment">// console.dir(mq, &#123;depth: 100&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStack</span> </span>&#123;</span><br><span class="line">    <span class="title">constructor</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.stack = <span class="keyword">new</span> DoubleLinkedList()</span><br><span class="line">        <span class="built_in">this</span>.length = <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    push (element) &#123;</span><br><span class="line">        <span class="built_in">this</span>.stack.addFromHead(element)</span><br><span class="line">        <span class="built_in">this</span>.length++</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    pop () &#123;</span><br><span class="line">        <span class="built_in">this</span>.length--</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.stack.popFromHead()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// let ms = new MyStack();</span></span><br><span class="line"><span class="comment">// ms.push(1)</span></span><br><span class="line"><span class="comment">// ms.push(2)</span></span><br><span class="line"><span class="comment">// ms.push(3)</span></span><br><span class="line"><span class="comment">// console.log(ms.pop())</span></span><br><span class="line"><span class="comment">// console.dir(ms, &#123;depth: 100&#125;);</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyArray</span> </span>&#123;</span><br><span class="line">    <span class="title">constructor</span> (<span class="params">limit</span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.limit = limit</span><br><span class="line">        <span class="built_in">this</span>.size = <span class="number">0</span></span><br><span class="line">        <span class="built_in">this</span>.pushi = <span class="number">0</span>  <span class="comment">// 添加索引</span></span><br><span class="line">        <span class="built_in">this</span>.polli = <span class="number">0</span>  <span class="comment">// 弹出索引</span></span><br><span class="line">        <span class="built_in">this</span>.arr = []</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    push (value) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.size === <span class="built_in">this</span>.limit) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;满了!&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.arr[<span class="built_in">this</span>.pushi] = value;</span><br><span class="line">        <span class="built_in">this</span>.size++</span><br><span class="line">        <span class="built_in">this</span>.pushi = <span class="built_in">this</span>.nextIndex(<span class="built_in">this</span>.pushi);</span><br><span class="line">        <span class="comment">// console.log(&#x27;pushi: &#x27;, this.pushi, &#x27;val: &#x27; , value)</span></span><br><span class="line">        <span class="comment">// console.log(this.arr)</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="title">pop</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.size === <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;空的!&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> res = <span class="built_in">this</span>.arr[<span class="built_in">this</span>.polli];</span><br><span class="line">        <span class="built_in">this</span>.size--;</span><br><span class="line">        <span class="built_in">this</span>.polli = <span class="built_in">this</span>.nextIndex(<span class="built_in">this</span>.polli)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">console</span>.log(res)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    nextIndex (i) &#123;</span><br><span class="line">        <span class="keyword">return</span> i &lt; <span class="built_in">this</span>.limit - <span class="number">1</span> ? i+<span class="number">1</span> : <span class="number">0</span>  <span class="comment">// 不能写i++</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">printArr</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="built_in">this</span>.arr)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// let marr = new MyArray(5)</span></span><br><span class="line"><span class="comment">// marr.push(0)</span></span><br><span class="line"><span class="comment">// marr.push(1)</span></span><br><span class="line"><span class="comment">// marr.push(2)</span></span><br><span class="line"><span class="comment">// marr.push(3)</span></span><br><span class="line"><span class="comment">// marr.push(4)</span></span><br><span class="line"><span class="comment">// marr.pop()</span></span><br><span class="line"><span class="comment">// marr.pop()</span></span><br><span class="line"><span class="comment">// marr.pop()</span></span><br><span class="line"><span class="comment">// marr.pop()</span></span><br><span class="line"><span class="comment">// marr.pop()</span></span><br><span class="line"><span class="comment">// marr.push(5)</span></span><br><span class="line"><span class="comment">// marr.push(6)</span></span><br><span class="line"><span class="comment">// marr.push(7)</span></span><br><span class="line"><span class="comment">// marr.push(8)</span></span><br><span class="line"><span class="comment">// marr.push(9)</span></span><br><span class="line"><span class="comment">// marr.pop()</span></span><br><span class="line"><span class="comment">// marr.pop()</span></span><br><span class="line"><span class="comment">// marr.pop()</span></span><br><span class="line"><span class="comment">// marr.pop()</span></span><br><span class="line"><span class="comment">// marr.pop()</span></span><br><span class="line"><span class="comment">// marr.printArr()</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
       
@@ -1022,150 +557,7 @@ class MyArray &#123;
 <p>反转:</p>
 <p>4 -&gt; 3 -&gt; 2 -&gt; 1</p>
 <p>这一个看明白,其他的就能推出来</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 单向链表
-class Node &#123;  &#x2F;&#x2F; 节点对象
-    constructor (element) &#123;  &#x2F;&#x2F; 初始化
-        this.element &#x3D; element  &#x2F;&#x2F; 节点元素
-        this.next &#x3D; null  &#x2F;&#x2F; 指向下一个节点
-    &#125;
-&#125;
-
-class LinkedList &#123;
-    constructor () &#123;
-        this.size &#x3D; 0  &#x2F;&#x2F; 链表大小
-        this.head &#x3D; null  &#x2F;&#x2F; 头节点指向
-    &#125;
-    
-    &#x2F;&#x2F; 在链表最后添加元素
-    append (element) &#123;
-        let node &#x3D; new Node(element);
-        &#x2F;&#x2F; 判断链表是否为空
-        if (this.size &#x3D;&#x3D;&#x3D; 0)&#123;
-            this.head &#x3D; node;
-        &#125; else &#123;
-            &#x2F;&#x2F; 不为空, 就要找到最后一个节点
-            let lastNode &#x3D; this.getNode(this.size - 1)
-            lastNode.next &#x3D; node  &#x2F;&#x2F; 给最后一个元素的next一个指向,就算添加完成
-        &#125;
-        this.size++
-    &#125;
-    
-    &#x2F;&#x2F; 在链表position位置添加
-    appendAt (position, element) &#123;
-        &#x2F;&#x2F; 边界判断
-        &#x2F;&#x2F; position &#x3D;&#x3D;&#x3D; this.size -&gt; 在最后一个元素之后添加
-        if (position &lt; 0 || position &gt; this.size)&#123; 
-            throw new Error(&#39;out of range&#39;);
-        &#125;
-        &#x2F;&#x2F; 在position位置添加, node.next &#x3D; nextNode.next ; preNode.next &#x3D; node
-        let node &#x3D; new Node(element);
-        if (position &#x3D;&#x3D;&#x3D; 0)&#123; &#x2F;&#x2F; 在头元素添加
-            node.next &#x3D; this.head
-            this.head &#x3D; node
-        &#125; else &#123;
-            let preNode &#x3D; this.getNode(position - 1)
-            node.next &#x3D; preNode.next
-            preNode.next &#x3D; node;
-        &#125;
-        this.size++
-    &#125;
-    
-    &#x2F;&#x2F; 删除  只需要改变节点的next指向即可
-    remove (position) &#123;
-        &#x2F;&#x2F; 边界判断
-        if (position &lt; 0|| position &gt;&#x3D; this.size)&#123;
-            throw new Error(&#39;out of range&#39;)
-        &#125;
-        &#x2F;&#x2F; pos &#x3D; 0  --&gt; this.head &#x3D; delNode.next
-        &#x2F;&#x2F; pos !- 0 --&gt; pre.next &#x3D; delNode.next
-        if (position &#x3D;&#x3D;&#x3D; 0)&#123;
-            let node &#x3D; this.getNode(position)
-            this.head &#x3D; node.next
-        &#125; else &#123;
-            let preNode &#x3D; this.getNode(position - 1)  &#x2F;&#x2F; 被删除的前一个的next
-            preNode.next &#x3D; preNode.next.next
-        &#125;
-        this.size--
-    &#125;
-    
-    &#x2F;&#x2F; 根据元素找下标
-    indexOf (element) &#123;
-        let current &#x3D; this.head
-        for (let i &#x3D; 0; i &lt; this.size; i++)&#123;
-            if (current.element &#x3D;&#x3D;&#x3D; element)&#123;
-                return i
-            &#125;
-            current &#x3D; current.next;
-        &#125;
-        return -1
-    &#125;
-    
-    &#x2F;&#x2F; 反转链表
-    reserve()&#123;
-        let pre &#x3D; null;
-        let next &#x3D; null;
-        while(this.head !&#x3D;&#x3D; null) &#123;
-            next &#x3D; this.head.next;  &#x2F;&#x2F; next &#x3D; 头节点的下一个节点
-            this.head.next &#x3D; pre;  &#x2F;&#x2F; 当前头节点的next指向上一个节点
-            pre &#x3D; this.head;  &#x2F;&#x2F; 上一个节点等于当前头节点
-            if (next &#x3D;&#x3D;&#x3D; null)&#123;  &#x2F;&#x2F; 如果next &#x3D; null 表示之后没有了,当前是最后一个 跳出程序
-                break
-            &#125;
-            this.head &#x3D; next;  &#x2F;&#x2F; 头节点后移一个
-        &#125;
-    &#125;
-	
-    &#x2F;&#x2F; 在链表中删除指定的元素
-    removeElement(element)&#123;
-        &#x2F;&#x2F; 找到第一个不需要删除的位置
-        while (this.head &#x3D;&#x3D;&#x3D; element)&#123;
-            this.size--
-            this.head &#x3D; this.head.next; &#x2F;&#x2F; head: 定格在第一个不等于element的节点
-        &#125;
-        let pre &#x3D; this.head;  &#x2F;&#x2F; pre: 前一个不等于element的节点
-        let cur &#x3D; this.head;  &#x2F;&#x2F; cur: 当前节点
-        while(cur !&#x3D;&#x3D; null)&#123;
-            if (cur.element &#x3D;&#x3D;&#x3D; element)&#123;
-                &#x2F;&#x2F; 当前节点的element 与 输入的element相同 , 要删除 , 就将pre.next指向当前节点的下一个节点
-                pre.next &#x3D; cur.next;
-                this.size--
-            &#125; else &#123;
-                pre &#x3D; cur;  &#x2F;&#x2F; 如果不相等, 让pre等于当前节点
-            &#125;
-            &#x2F;&#x2F; 在循环最后 cur 要等于cur的下一个节点, 来保证while运行
-            cur &#x3D; cur.next;
-        &#125;
-    &#125;
-
-    
-    getNode(index)&#123;
-        if (index &lt; 0 || index &gt;&#x3D; this.size)&#123;
-            throw new Error(&#39;out of range&#39;);
-        &#125;
-        let current &#x3D; this.head;
-        for (let i &#x3D; 0; i &lt; index; i++)&#123;
-            current &#x3D; current.next
-        &#125;
-        return current
-    &#125;
-&#125;
-
-let li &#x3D; new LinkedList()
-li.append(1)
-li.append(2)
-
-li.appendAt(2, 3)
-li.appendAt(3, 4)
-li.appendAt(3, 5)
-
-li.remove(3)
-
-console.log(li.indexOf(1))
-console.log(li.indexOf(4))
-
-console.dir(li, &#123;
-    depth: 100
-&#125;)</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单向链表</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;  <span class="comment">// 节点对象</span></span><br><span class="line">    <span class="title">constructor</span> (<span class="params">element</span>) &#123;  <span class="comment">// 初始化</span></span><br><span class="line">        <span class="built_in">this</span>.element = element  <span class="comment">// 节点元素</span></span><br><span class="line">        <span class="built_in">this</span>.next = <span class="literal">null</span>  <span class="comment">// 指向下一个节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span> </span>&#123;</span><br><span class="line">    <span class="title">constructor</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.size = <span class="number">0</span>  <span class="comment">// 链表大小</span></span><br><span class="line">        <span class="built_in">this</span>.head = <span class="literal">null</span>  <span class="comment">// 头节点指向</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 在链表最后添加元素</span></span><br><span class="line">    append (element) &#123;</span><br><span class="line">        <span class="keyword">let</span> node = <span class="keyword">new</span> Node(element);</span><br><span class="line">        <span class="comment">// 判断链表是否为空</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.size === <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">this</span>.head = node;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 不为空, 就要找到最后一个节点</span></span><br><span class="line">            <span class="keyword">let</span> lastNode = <span class="built_in">this</span>.getNode(<span class="built_in">this</span>.size - <span class="number">1</span>)</span><br><span class="line">            lastNode.next = node  <span class="comment">// 给最后一个元素的next一个指向,就算添加完成</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.size++</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 在链表position位置添加</span></span><br><span class="line">    appendAt (position, element) &#123;</span><br><span class="line">        <span class="comment">// 边界判断</span></span><br><span class="line">        <span class="comment">// position === this.size -&gt; 在最后一个元素之后添加</span></span><br><span class="line">        <span class="keyword">if</span> (position &lt; <span class="number">0</span> || position &gt; <span class="built_in">this</span>.size)&#123; </span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;out of range&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 在position位置添加, node.next = nextNode.next ; preNode.next = node</span></span><br><span class="line">        <span class="keyword">let</span> node = <span class="keyword">new</span> Node(element);</span><br><span class="line">        <span class="keyword">if</span> (position === <span class="number">0</span>)&#123; <span class="comment">// 在头元素添加</span></span><br><span class="line">            node.next = <span class="built_in">this</span>.head</span><br><span class="line">            <span class="built_in">this</span>.head = node</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> preNode = <span class="built_in">this</span>.getNode(position - <span class="number">1</span>)</span><br><span class="line">            node.next = preNode.next</span><br><span class="line">            preNode.next = node;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.size++</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 删除  只需要改变节点的next指向即可</span></span><br><span class="line">    remove (position) &#123;</span><br><span class="line">        <span class="comment">// 边界判断</span></span><br><span class="line">        <span class="keyword">if</span> (position &lt; <span class="number">0</span>|| position &gt;= <span class="built_in">this</span>.size)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;out of range&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// pos = 0  --&gt; this.head = delNode.next</span></span><br><span class="line">        <span class="comment">// pos !- 0 --&gt; pre.next = delNode.next</span></span><br><span class="line">        <span class="keyword">if</span> (position === <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">let</span> node = <span class="built_in">this</span>.getNode(position)</span><br><span class="line">            <span class="built_in">this</span>.head = node.next</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> preNode = <span class="built_in">this</span>.getNode(position - <span class="number">1</span>)  <span class="comment">// 被删除的前一个的next</span></span><br><span class="line">            preNode.next = preNode.next.next</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.size--</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 根据元素找下标</span></span><br><span class="line">    indexOf (element) &#123;</span><br><span class="line">        <span class="keyword">let</span> current = <span class="built_in">this</span>.head</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">this</span>.size; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (current.element === element)&#123;</span><br><span class="line">                <span class="keyword">return</span> i</span><br><span class="line">            &#125;</span><br><span class="line">            current = current.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 反转链表</span></span><br><span class="line">    <span class="function"><span class="title">reserve</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> pre = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">let</span> next = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="built_in">this</span>.head !== <span class="literal">null</span>) &#123;</span><br><span class="line">            next = <span class="built_in">this</span>.head.next;  <span class="comment">// next = 头节点的下一个节点</span></span><br><span class="line">            <span class="built_in">this</span>.head.next = pre;  <span class="comment">// 当前头节点的next指向上一个节点</span></span><br><span class="line">            pre = <span class="built_in">this</span>.head;  <span class="comment">// 上一个节点等于当前头节点</span></span><br><span class="line">            <span class="keyword">if</span> (next === <span class="literal">null</span>)&#123;  <span class="comment">// 如果next = null 表示之后没有了,当前是最后一个 跳出程序</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">this</span>.head = next;  <span class="comment">// 头节点后移一个</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 在链表中删除指定的元素</span></span><br><span class="line">    <span class="function"><span class="title">removeElement</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">        <span class="comment">// 找到第一个不需要删除的位置</span></span><br><span class="line">        <span class="keyword">while</span> (<span class="built_in">this</span>.head === element)&#123;</span><br><span class="line">            <span class="built_in">this</span>.size--</span><br><span class="line">            <span class="built_in">this</span>.head = <span class="built_in">this</span>.head.next; <span class="comment">// head: 定格在第一个不等于element的节点</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> pre = <span class="built_in">this</span>.head;  <span class="comment">// pre: 前一个不等于element的节点</span></span><br><span class="line">        <span class="keyword">let</span> cur = <span class="built_in">this</span>.head;  <span class="comment">// cur: 当前节点</span></span><br><span class="line">        <span class="keyword">while</span>(cur !== <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (cur.element === element)&#123;</span><br><span class="line">                <span class="comment">// 当前节点的element 与 输入的element相同 , 要删除 , 就将pre.next指向当前节点的下一个节点</span></span><br><span class="line">                pre.next = cur.next;</span><br><span class="line">                <span class="built_in">this</span>.size--</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                pre = cur;  <span class="comment">// 如果不相等, 让pre等于当前节点</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 在循环最后 cur 要等于cur的下一个节点, 来保证while运行</span></span><br><span class="line">            cur = cur.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="title">getNode</span>(<span class="params">index</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= <span class="built_in">this</span>.size)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;out of range&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> current = <span class="built_in">this</span>.head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; index; i++)&#123;</span><br><span class="line">            current = current.next</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> current</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> li = <span class="keyword">new</span> LinkedList()</span><br><span class="line">li.append(<span class="number">1</span>)</span><br><span class="line">li.append(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">li.appendAt(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">li.appendAt(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">li.appendAt(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">li.remove(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(li.indexOf(<span class="number">1</span>))</span><br><span class="line"><span class="built_in">console</span>.log(li.indexOf(<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.dir(li, &#123;</span><br><span class="line">    <span class="attr">depth</span>: <span class="number">100</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
@@ -1253,40 +645,7 @@ console.dir(li, &#123;
 <hr>
 <p>如何更优雅的找出水王？</p>
 <p>直接上代码</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">function func (arr) &#123;
-    &#x2F;&#x2F; 对传入的数据做筛除， 不能为空， 长度不能为0
-    if (arr &#x3D;&#x3D;&#x3D; null || arr.length &#x3D;&#x3D;&#x3D; 0) &#123;
-        return -1
-    &#125;
-    &#x2F;&#x2F; -------------------------------
-    let candidate &#x3D; null  &#x2F;&#x2F; 候选值
-    let restHP &#x3D; 0  &#x2F;&#x2F; 剩余血量
-    for (let cur of arr) &#123;
-        if (restHP &#x3D;&#x3D;&#x3D; 0) &#123; &#x2F;&#x2F; 没有候选
-            candidate &#x3D; cur
-            restHP &#x3D; 1
-        &#125; else if (cur !&#x3D;&#x3D; candidate) &#123; &#x2F;&#x2F; 当前值 不等于 候选
-            restHP--
-        &#125; else &#123;  &#x2F;&#x2F; 当前值等于候选
-            restHP++
-        &#125;
-    &#125;
-    &#x2F;&#x2F; -------------------------------
-    if (restHP &#x3D;&#x3D;&#x3D; 0) &#123;
-        console.log(&#39;null&#39;)
-        return -1
-    &#125;
-    &#x2F;&#x2F; -------------------------------
-    let count &#x3D; 0
-    for (let num of arr) &#123;
-        if (num &#x3D;&#x3D;&#x3D; candidate) &#123;
-            count++
-        &#125;
-    &#125;
-    &#x2F;&#x2F; arr.length &gt;&gt; 1 &#x3D; arr.length &#x2F; 2
-    return count &gt; (arr.length &gt;&gt; 1) ? console.log(candidate) : console.log(&#39;null&#39;)
-    
-&#125;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 对传入的数据做筛除， 不能为空， 长度不能为0</span></span><br><span class="line">    <span class="keyword">if</span> (arr === <span class="literal">null</span> || arr.length === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// -------------------------------</span></span><br><span class="line">    <span class="keyword">let</span> candidate = <span class="literal">null</span>  <span class="comment">// 候选值</span></span><br><span class="line">    <span class="keyword">let</span> restHP = <span class="number">0</span>  <span class="comment">// 剩余血量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> cur <span class="keyword">of</span> arr) &#123;</span><br><span class="line">        <span class="keyword">if</span> (restHP === <span class="number">0</span>) &#123; <span class="comment">// 没有候选</span></span><br><span class="line">            candidate = cur</span><br><span class="line">            restHP = <span class="number">1</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cur !== candidate) &#123; <span class="comment">// 当前值 不等于 候选</span></span><br><span class="line">            restHP--</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;  <span class="comment">// 当前值等于候选</span></span><br><span class="line">            restHP++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// -------------------------------</span></span><br><span class="line">    <span class="keyword">if</span> (restHP === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;null&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// -------------------------------</span></span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> num <span class="keyword">of</span> arr) &#123;</span><br><span class="line">        <span class="keyword">if</span> (num === candidate) &#123;</span><br><span class="line">            count++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// arr.length &gt;&gt; 1 = arr.length / 2</span></span><br><span class="line">    <span class="keyword">return</span> count &gt; (arr.length &gt;&gt; <span class="number">1</span>) ? <span class="built_in">console</span>.log(candidate) : <span class="built_in">console</span>.log(<span class="string">&#x27;null&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -1381,55 +740,7 @@ console.dir(li, &#123;
       
         <h2 id="Vue踩坑之-一-——-Vue中input防抖"><a href="#Vue踩坑之-一-——-Vue中input防抖" class="headerlink" title="Vue踩坑之(一) —— Vue中input防抖"></a>Vue踩坑之(一) —— Vue中input防抖</h2><p>在有道网页翻译中，无意间发现这样一个功能，恰好我正在写一个小项目，其中一个功能就需要，在input输入框中输入，然后根据输入内容调用api，但是如果输入速度太快不能无限制调用，需要加防抖  </p>
 <p>直接上代码</p>
-<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
-  &lt;div id&#x3D;&quot;addword&quot;&gt;
-    &lt;p&gt;添加单词&lt;&#x2F;p&gt;
-    &lt;input type&#x3D;&quot;text&quot; v-model&#x3D;&quot;iText&quot; @input&#x3D;&quot;debounce(verifyWord, 500)()&quot;&gt;  &lt;!--必须调用返回的函数--&gt;
-    &lt;p&gt;&#123;&#123; vword &#125;&#125;&lt;&#x2F;p&gt;
-  &lt;&#x2F;div&gt;
-&lt;&#x2F;template&gt;
-
-&lt;script&gt;
-
-export default &#123;
-  name: &#39;AddWord&#39;,
-  data () &#123;
-    return &#123;
-      iText: &#39;&#39;,  &#x2F;&#x2F; input中的值
-      vword: &#39;&#39;,  &#x2F;&#x2F; 要显示的值
-      timer: null,  &#x2F;&#x2F; 定时器
-    &#125;
-  &#125;,
-  methods: &#123;
-    verifyWord () &#123;
-      if (this.iText.trim() !&#x3D;&#x3D; &#39;&#39;) &#123;
-        this.vword &#x3D; this.iText
-        &#x2F;&#x2F; 此处调用api
-      &#125;
-    &#125;,
-    debounce (func, delay)&#123;
-      &#x2F;&#x2F; let timer &#x3D; null  定时器不能在此处定义！！
-      let context &#x3D; this
-      let args &#x3D; arguments
-      console.log(this)  &#x2F;&#x2F; --&gt; VueComponent
-      return function () &#123;
-        &#x2F;&#x2F; console.log(this)  --&gt; undefined
-        clearTimeout(context.timer)
-        context.timer &#x3D; setTimeout(()&#x3D;&gt; &#123;
-          func.apply(context, args)
-        &#125;, delay)
-      &#125;
-    &#125;
-
-  &#125;
-&#125;
-&lt;&#x2F;script&gt;
-
-&lt;style scoped lang&#x3D;&#39;scss&#39;&gt;
-#addword &#123;
-  border: 1px solid black;
-&#125;
-&lt;&#x2F;style&gt;</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;addword&quot;&gt;</span><br><span class="line">    &lt;p&gt;添加单词&lt;/p&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; v-model=&quot;iText&quot; @input=&quot;debounce(verifyWord, 500)()&quot;&gt;  &lt;!--必须调用返回的函数--&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123; vword &#125;&#125;&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;AddWord&#x27;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      iText: &#x27;&#x27;,  // input中的值</span><br><span class="line">      vword: &#x27;&#x27;,  // 要显示的值</span><br><span class="line">      timer: null,  // 定时器</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    verifyWord () &#123;</span><br><span class="line">      if (this.iText.trim() !== &#x27;&#x27;) &#123;</span><br><span class="line">        this.vword = this.iText</span><br><span class="line">        // 此处调用api</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    debounce (func, delay)&#123;</span><br><span class="line">      // let timer = null  定时器不能在此处定义！！</span><br><span class="line">      let context = this</span><br><span class="line">      let args = arguments</span><br><span class="line">      console.log(this)  // --&gt; VueComponent</span><br><span class="line">      return function () &#123;</span><br><span class="line">        // console.log(this)  --&gt; undefined</span><br><span class="line">        clearTimeout(context.timer)</span><br><span class="line">        context.timer = setTimeout(()=&gt; &#123;</span><br><span class="line">          func.apply(context, args)</span><br><span class="line">        &#125;, delay)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped lang=&#x27;scss&#x27;&gt;</span><br><span class="line">#addword &#123;</span><br><span class="line">  border: 1px solid black;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -1602,16 +913,16 @@ hexo d (deploy)部署
         <span id="more"></span>
 
 <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new &quot;My New Post&quot;</code></pre>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server</code></pre>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate</code></pre>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy</code></pre>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
