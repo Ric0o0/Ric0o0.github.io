@@ -178,40 +178,40 @@
 <hr>
 <p>如何更优雅的找出水王？</p>
 <p>直接上代码</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">func</span> <span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">// 对传入的数据做筛除， 不能为空， 长度不能为0</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>arr <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">||</span> arr<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">// -------------------------------</span>
-    <span class="token keyword">let</span> candidate <span class="token operator">=</span> <span class="token keyword">null</span>  <span class="token comment">// 候选值</span>
-    <span class="token keyword">let</span> restHP <span class="token operator">=</span> <span class="token number">0</span>  <span class="token comment">// 剩余血量</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> cur <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>restHP <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 没有候选</span>
-            candidate <span class="token operator">=</span> cur
-            restHP <span class="token operator">=</span> <span class="token number">1</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>cur <span class="token operator">!==</span> candidate<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 当前值 不等于 候选</span>
-            restHP<span class="token operator">--</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 当前值等于候选</span>
-            restHP<span class="token operator">++</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">// -------------------------------</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>restHP <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'null'</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">// -------------------------------</span>
-    <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> num <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">===</span> candidate<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            count<span class="token operator">++</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">// arr.length >> 1 = arr.length / 2</span>
-    <span class="token keyword">return</span> count <span class="token operator">></span> <span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">>></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">?</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>candidate<span class="token punctuation">)</span> <span class="token operator">:</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'null'</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">function func (arr) &#123;
+    &#x2F;&#x2F; 对传入的数据做筛除， 不能为空， 长度不能为0
+    if (arr &#x3D;&#x3D;&#x3D; null || arr.length &#x3D;&#x3D;&#x3D; 0) &#123;
+        return -1
+    &#125;
+    &#x2F;&#x2F; -------------------------------
+    let candidate &#x3D; null  &#x2F;&#x2F; 候选值
+    let restHP &#x3D; 0  &#x2F;&#x2F; 剩余血量
+    for (let cur of arr) &#123;
+        if (restHP &#x3D;&#x3D;&#x3D; 0) &#123; &#x2F;&#x2F; 没有候选
+            candidate &#x3D; cur
+            restHP &#x3D; 1
+        &#125; else if (cur !&#x3D;&#x3D; candidate) &#123; &#x2F;&#x2F; 当前值 不等于 候选
+            restHP--
+        &#125; else &#123;  &#x2F;&#x2F; 当前值等于候选
+            restHP++
+        &#125;
+    &#125;
+    &#x2F;&#x2F; -------------------------------
+    if (restHP &#x3D;&#x3D;&#x3D; 0) &#123;
+        console.log(&#39;null&#39;)
+        return -1
+    &#125;
+    &#x2F;&#x2F; -------------------------------
+    let count &#x3D; 0
+    for (let num of arr) &#123;
+        if (num &#x3D;&#x3D;&#x3D; candidate) &#123;
+            count++
+        &#125;
+    &#125;
+    &#x2F;&#x2F; arr.length &gt;&gt; 1 &#x3D; arr.length &#x2F; 2
+    return count &gt; (arr.length &gt;&gt; 1) ? console.log(candidate) : console.log(&#39;null&#39;)
     
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;</code></pre>
 
 
 
@@ -485,11 +485,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">归并排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">归并排序</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
             
             <div class="clearfix"></div>

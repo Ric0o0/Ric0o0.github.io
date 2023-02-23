@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>js双向链表_队列_栈_环形数组 | Rico&#39;s blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&#x2F;&#x2F; 双向链表 class Node &amp;#123;     constructor (element) &amp;#123;         this.element &#x3D; element &#x2F;&#x2F; 元素         this.last &#x3D; null &#x2F;&#x2F; 上一指针         this.next &#x3D; null &#x2F;&#x2F; 下一指针     &amp;#125; &amp;#125;  class DoubleLinkedL">
+  <meta name="description" content="&#x2F;&#x2F; 双向链表 class Node &amp;#123;     constructor (element) &amp;#123;         this.element &#x3D; element &#x2F;&#x2F; 元素         this.last &#x3D; null &#x2F;&#x2F; 上一指针         this.next &#x3D; null &amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js双向链表_队列_栈_环形数组">
 <meta property="og:url" content="http://example.com/2021/06/02/js%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8-%E9%98%9F%E5%88%97-%E6%A0%88/index.html">
 <meta property="og:site_name" content="Rico&#39;s blogs">
-<meta property="og:description" content="&#x2F;&#x2F; 双向链表 class Node &amp;#123;     constructor (element) &amp;#123;         this.element &#x3D; element &#x2F;&#x2F; 元素         this.last &#x3D; null &#x2F;&#x2F; 上一指针         this.next &#x3D; null &#x2F;&#x2F; 下一指针     &amp;#125; &amp;#125;  class DoubleLinkedL">
+<meta property="og:description" content="&#x2F;&#x2F; 双向链表 class Node &amp;#123;     constructor (element) &amp;#123;         this.element &#x3D; element &#x2F;&#x2F; 元素         this.last &#x3D; null &#x2F;&#x2F; 上一指针         this.next &#x3D; null &amp;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-02T14:47:44.000Z">
 <meta property="article:modified_time" content="2021-06-04T03:30:55.236Z">
@@ -169,207 +169,207 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 双向链表</span>
-<span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>element <span class="token operator">=</span> element <span class="token comment">// 元素</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>last <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token comment">// 上一指针</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token comment">// 下一指针</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
+        <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 双向链表
+class Node &#123;
+    constructor (element) &#123;
+        this.element &#x3D; element &#x2F;&#x2F; 元素
+        this.last &#x3D; null &#x2F;&#x2F; 上一指针
+        this.next &#x3D; null &#x2F;&#x2F; 下一指针
+    &#125;
+&#125;
 
-<span class="token keyword">class</span> <span class="token class-name">DoubleLinkedList</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> <span class="token keyword">null</span>  <span class="token comment">// 链表头</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>tail <span class="token operator">=</span> <span class="token keyword">null</span>  <span class="token comment">// 链表尾</span>
-    <span class="token punctuation">&#125;</span>
+class DoubleLinkedList &#123;
+    constructor () &#123;
+        this.head &#x3D; null  &#x2F;&#x2F; 链表头
+        this.tail &#x3D; null  &#x2F;&#x2F; 链表尾
+    &#125;
     
-    <span class="token comment">// 从头部添加</span>
-    <span class="token function">addFromHead</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">let</span> node <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span>
-        <span class="token comment">// 判断this.head是否为空</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> node
-            <span class="token keyword">this</span><span class="token punctuation">.</span>tail <span class="token operator">=</span> node
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>head<span class="token punctuation">.</span>last <span class="token operator">=</span> node  <span class="token comment">// 原来的头节点last指向新节点</span>
-            node<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token comment">// 新节点的next指向原来的头节点</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> node <span class="token comment">// head指向新节点</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
+    &#x2F;&#x2F; 从头部添加
+    addFromHead (element) &#123;
+        let node &#x3D; new Node(element)
+        &#x2F;&#x2F; 判断this.head是否为空
+        if (this.head &#x3D;&#x3D;&#x3D; null) &#123;
+            this.head &#x3D; node
+            this.tail &#x3D; node
+        &#125; else &#123;
+            this.head.last &#x3D; node  &#x2F;&#x2F; 原来的头节点last指向新节点
+            node.next &#x3D; this.head &#x2F;&#x2F; 新节点的next指向原来的头节点
+            this.head &#x3D; node &#x2F;&#x2F; head指向新节点
+        &#125;
+    &#125;
     
-    <span class="token comment">// 从尾部添加</span>
-    <span class="token function">addFromTail</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">let</span> node <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span>
-        <span class="token comment">// 判断this.head是否为空</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> node
-            <span class="token keyword">this</span><span class="token punctuation">.</span>tail <span class="token operator">=</span> node
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            node<span class="token punctuation">.</span>last <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>tail
-            <span class="token keyword">this</span><span class="token punctuation">.</span>tail<span class="token punctuation">.</span>next <span class="token operator">=</span> node
-            <span class="token keyword">this</span><span class="token punctuation">.</span>tail <span class="token operator">=</span> node
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
+    &#x2F;&#x2F; 从尾部添加
+    addFromTail (element) &#123;
+        let node &#x3D; new Node(element)
+        &#x2F;&#x2F; 判断this.head是否为空
+        if (this.head &#x3D;&#x3D;&#x3D; null) &#123;
+            this.head &#x3D; node
+            this.tail &#x3D; node
+        &#125; else &#123;
+            node.last &#x3D; this.tail
+            this.tail.next &#x3D; node
+            this.tail &#x3D; node
+        &#125;
+    &#125;
     
-    <span class="token comment">// 从头部弹出</span>
-    <span class="token function">popFromHead</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> <span class="token keyword">null</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">let</span> popNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
-        <span class="token comment">// 只有一个节点</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">===</span> <span class="token keyword">this</span><span class="token punctuation">.</span>tail<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> <span class="token keyword">null</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>tail <span class="token operator">=</span> <span class="token keyword">null</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            <span class="token comment">// 正常情况</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> popNode<span class="token punctuation">.</span>next
-            <span class="token keyword">this</span><span class="token punctuation">.</span>head<span class="token punctuation">.</span>last <span class="token operator">=</span> <span class="token keyword">null</span>
-            popNode<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> popNode
-    <span class="token punctuation">&#125;</span>
+    &#x2F;&#x2F; 从头部弹出
+    popFromHead () &#123;
+        if (this.head &#x3D;&#x3D;&#x3D; null) &#123;
+            return null
+        &#125;
+        let popNode &#x3D; this.head
+        &#x2F;&#x2F; 只有一个节点
+        if (this.head &#x3D;&#x3D;&#x3D; this.tail) &#123;
+            this.head &#x3D; null
+            this.tail &#x3D; null
+        &#125; else &#123;
+            &#x2F;&#x2F; 正常情况
+            this.head &#x3D; popNode.next
+            this.head.last &#x3D; null
+            popNode.next &#x3D; null
+        &#125;
+        return popNode
+    &#125;
     
-    <span class="token comment">// 从尾部弹出</span>
-    <span class="token function">popFromTail</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>tail <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> <span class="token keyword">null</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">let</span> popNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>tail
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">===</span> <span class="token keyword">this</span><span class="token punctuation">.</span>tail<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> <span class="token keyword">null</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>tail <span class="token operator">=</span> <span class="token keyword">null</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>tail <span class="token operator">=</span> popNode<span class="token punctuation">.</span>last
-            <span class="token keyword">this</span><span class="token punctuation">.</span>tail<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span>
-            popNode<span class="token punctuation">.</span>last <span class="token operator">=</span> <span class="token keyword">null</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> popNode
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
+    &#x2F;&#x2F; 从尾部弹出
+    popFromTail () &#123;
+        if (this.tail &#x3D;&#x3D;&#x3D; null) &#123;
+            return null
+        &#125;
+        let popNode &#x3D; this.tail
+        if (this.head &#x3D;&#x3D;&#x3D; this.tail) &#123;
+            this.head &#x3D; null
+            this.tail &#x3D; null
+        &#125; else &#123;
+            this.tail &#x3D; popNode.last
+            this.tail.next &#x3D; null
+            popNode.last &#x3D; null
+        &#125;
+        return popNode
+    &#125;
+&#125;
 
-<span class="token comment">// let dll = new DoubleLinkedList()</span>
-<span class="token comment">// dll.addFromHead(3)</span>
-<span class="token comment">// dll.addFromHead(2)</span>
-<span class="token comment">// dll.addFromHead(1)</span>
-<span class="token comment">//</span>
-<span class="token comment">// dll.addFromTail(4)</span>
-<span class="token comment">// console.log(dll.popFromTail())</span>
-<span class="token comment">// console.dir(dll, &#123;depth: 100&#125;)</span>
+&#x2F;&#x2F; let dll &#x3D; new DoubleLinkedList()
+&#x2F;&#x2F; dll.addFromHead(3)
+&#x2F;&#x2F; dll.addFromHead(2)
+&#x2F;&#x2F; dll.addFromHead(1)
+&#x2F;&#x2F;
+&#x2F;&#x2F; dll.addFromTail(4)
+&#x2F;&#x2F; console.log(dll.popFromTail())
+&#x2F;&#x2F; console.dir(dll, &#123;depth: 100&#125;)
 
-<span class="token keyword">class</span> <span class="token class-name">MyQueue</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">// 先进先出  头进尾出</span>
-    <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DoubleLinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
+class MyQueue &#123;
+    &#x2F;&#x2F; 先进先出  头进尾出
+    constructor () &#123;
+        this.length &#x3D; 0
+        this.queue &#x3D; new DoubleLinkedList()
+    &#125;
     
-    <span class="token function">push</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">++</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>queue<span class="token punctuation">.</span><span class="token function">addFromHead</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
+    push (element) &#123;
+        this.length++
+        this.queue.addFromHead(element)
+    &#125;
     
-    <span class="token function">pop</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">--</span>
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>queue<span class="token punctuation">.</span><span class="token function">popFromTail</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
+    pop () &#123;
+        this.length--
+        return this.queue.popFromTail()
+    &#125;
     
-<span class="token punctuation">&#125;</span>
+&#125;
 
-<span class="token comment">// let mq = new MyQueue();</span>
-<span class="token comment">// mq.push(1)</span>
-<span class="token comment">// mq.push(2)</span>
-<span class="token comment">// mq.push(3)</span>
-<span class="token comment">// console.log(mq.pop())</span>
-<span class="token comment">// console.dir(mq, &#123;depth: 100&#125;)</span>
+&#x2F;&#x2F; let mq &#x3D; new MyQueue();
+&#x2F;&#x2F; mq.push(1)
+&#x2F;&#x2F; mq.push(2)
+&#x2F;&#x2F; mq.push(3)
+&#x2F;&#x2F; console.log(mq.pop())
+&#x2F;&#x2F; console.dir(mq, &#123;depth: 100&#125;)
 
-<span class="token keyword">class</span> <span class="token class-name">MyStack</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DoubleLinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token punctuation">&#125;</span>
+class MyStack &#123;
+    constructor () &#123;
+        this.stack &#x3D; new DoubleLinkedList()
+        this.length &#x3D; 0
+    &#125;
     
-    <span class="token function">push</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>stack<span class="token punctuation">.</span><span class="token function">addFromHead</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">++</span>
-    <span class="token punctuation">&#125;</span>
+    push (element) &#123;
+        this.stack.addFromHead(element)
+        this.length++
+    &#125;
     
-    <span class="token function">pop</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">--</span>
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>stack<span class="token punctuation">.</span><span class="token function">popFromHead</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
+    pop () &#123;
+        this.length--
+        return this.stack.popFromHead()
+    &#125;
     
-<span class="token punctuation">&#125;</span>
+&#125;
 
-<span class="token comment">// let ms = new MyStack();</span>
-<span class="token comment">// ms.push(1)</span>
-<span class="token comment">// ms.push(2)</span>
-<span class="token comment">// ms.push(3)</span>
-<span class="token comment">// console.log(ms.pop())</span>
-<span class="token comment">// console.dir(ms, &#123;depth: 100&#125;);</span>
+&#x2F;&#x2F; let ms &#x3D; new MyStack();
+&#x2F;&#x2F; ms.push(1)
+&#x2F;&#x2F; ms.push(2)
+&#x2F;&#x2F; ms.push(3)
+&#x2F;&#x2F; console.log(ms.pop())
+&#x2F;&#x2F; console.dir(ms, &#123;depth: 100&#125;);
 
-<span class="token keyword">class</span> <span class="token class-name">MyArray</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token parameter">limit</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>limit <span class="token operator">=</span> limit
-        <span class="token keyword">this</span><span class="token punctuation">.</span>size <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>pushi <span class="token operator">=</span> <span class="token number">0</span>  <span class="token comment">// 添加索引</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>polli <span class="token operator">=</span> <span class="token number">0</span>  <span class="token comment">// 弹出索引</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token punctuation">&#125;</span>
+class MyArray &#123;
+    constructor (limit) &#123;
+        this.limit &#x3D; limit
+        this.size &#x3D; 0
+        this.pushi &#x3D; 0  &#x2F;&#x2F; 添加索引
+        this.polli &#x3D; 0  &#x2F;&#x2F; 弹出索引
+        this.arr &#x3D; []
+    &#125;
     
-    <span class="token function">push</span> <span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>size <span class="token operator">===</span> <span class="token keyword">this</span><span class="token punctuation">.</span>limit<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'满了!'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>arr<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>pushi<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>size<span class="token operator">++</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>pushi <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">nextIndex</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>pushi<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// console.log('pushi: ', this.pushi, 'val: ' , value)</span>
-        <span class="token comment">// console.log(this.arr)</span>
-    <span class="token punctuation">&#125;</span>
+    push (value) &#123;
+        if (this.size &#x3D;&#x3D;&#x3D; this.limit) &#123;
+            throw new Error(&#39;满了!&#39;)
+        &#125;
+        this.arr[this.pushi] &#x3D; value;
+        this.size++
+        this.pushi &#x3D; this.nextIndex(this.pushi);
+        &#x2F;&#x2F; console.log(&#39;pushi: &#39;, this.pushi, &#39;val: &#39; , value)
+        &#x2F;&#x2F; console.log(this.arr)
+    &#125;
     
-    <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>size <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'空的!'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>arr<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>polli<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>size<span class="token operator">--</span><span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>polli <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">nextIndex</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>polli<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
+    pop()&#123;
+        if (this.size &#x3D;&#x3D;&#x3D; 0)&#123;
+            throw new Error(&#39;空的!&#39;)
+        &#125;
+        let res &#x3D; this.arr[this.polli];
+        this.size--;
+        this.polli &#x3D; this.nextIndex(this.polli)
+        return console.log(res)
+    &#125;
     
-    <span class="token function">nextIndex</span> <span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> i <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>limit <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">?</span> i<span class="token operator">+</span><span class="token number">1</span> <span class="token operator">:</span> <span class="token number">0</span>  <span class="token comment">// 不能写i++</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token function">printArr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>arr<span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
+    nextIndex (i) &#123;
+        return i &lt; this.limit - 1 ? i+1 : 0  &#x2F;&#x2F; 不能写i++
+    &#125;
+    printArr()&#123;
+        return console.log(this.arr)
+    &#125;
     
-<span class="token punctuation">&#125;</span>
-<span class="token comment">// let marr = new MyArray(5)</span>
-<span class="token comment">// marr.push(0)</span>
-<span class="token comment">// marr.push(1)</span>
-<span class="token comment">// marr.push(2)</span>
-<span class="token comment">// marr.push(3)</span>
-<span class="token comment">// marr.push(4)</span>
-<span class="token comment">// marr.pop()</span>
-<span class="token comment">// marr.pop()</span>
-<span class="token comment">// marr.pop()</span>
-<span class="token comment">// marr.pop()</span>
-<span class="token comment">// marr.pop()</span>
-<span class="token comment">// marr.push(5)</span>
-<span class="token comment">// marr.push(6)</span>
-<span class="token comment">// marr.push(7)</span>
-<span class="token comment">// marr.push(8)</span>
-<span class="token comment">// marr.push(9)</span>
-<span class="token comment">// marr.pop()</span>
-<span class="token comment">// marr.pop()</span>
-<span class="token comment">// marr.pop()</span>
-<span class="token comment">// marr.pop()</span>
-<span class="token comment">// marr.pop()</span>
-<span class="token comment">// marr.printArr()</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;
+&#x2F;&#x2F; let marr &#x3D; new MyArray(5)
+&#x2F;&#x2F; marr.push(0)
+&#x2F;&#x2F; marr.push(1)
+&#x2F;&#x2F; marr.push(2)
+&#x2F;&#x2F; marr.push(3)
+&#x2F;&#x2F; marr.push(4)
+&#x2F;&#x2F; marr.pop()
+&#x2F;&#x2F; marr.pop()
+&#x2F;&#x2F; marr.pop()
+&#x2F;&#x2F; marr.pop()
+&#x2F;&#x2F; marr.pop()
+&#x2F;&#x2F; marr.push(5)
+&#x2F;&#x2F; marr.push(6)
+&#x2F;&#x2F; marr.push(7)
+&#x2F;&#x2F; marr.push(8)
+&#x2F;&#x2F; marr.push(9)
+&#x2F;&#x2F; marr.pop()
+&#x2F;&#x2F; marr.pop()
+&#x2F;&#x2F; marr.pop()
+&#x2F;&#x2F; marr.pop()
+&#x2F;&#x2F; marr.pop()
+&#x2F;&#x2F; marr.printArr()
+</code></pre>
 
 
       
@@ -614,11 +614,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">归并排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">归并排序</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
             
             <div class="clearfix"></div>

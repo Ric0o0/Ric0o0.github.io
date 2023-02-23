@@ -183,44 +183,44 @@
 <li><p>如果最后一个数 &lt; value  –&gt;  minArr就要push这个新的value .</p>
 </li>
 </ol>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 取出栈中的最小值, 要求时间复杂度O(1)</span>
-<span class="token keyword">class</span> <span class="token class-name">MyStack1</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>minArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token function">push</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>arr<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>minArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 当前值小于最小栈顶的值</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>minArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>minArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>minArr<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>minArr<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>arr<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'空表!'</span><span class="token punctuation">)</span>
-            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>minArr<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// 弹出就是两个一起弹</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>arr<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token function">getMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>minArr<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>minArr<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">let</span> ms <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyStack1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-ms<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
-ms<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>
-ms<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>
-ms<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
-ms<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
-ms<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
-<span class="token comment">// ms.pop()</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ms<span class="token punctuation">.</span><span class="token function">getMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ms<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 取出栈中的最小值, 要求时间复杂度O(1)
+class MyStack1 &#123;
+    constructor () &#123;
+        this.arr &#x3D; [];
+        this.minArr &#x3D; [];
+    &#125;
+    push(value)&#123;
+        if (this.arr.length &#x3D;&#x3D;&#x3D; 0)&#123;
+            this.minArr.push(value)
+        &#125; else if (value &lt; this.getMin())&#123;  &#x2F;&#x2F; 当前值小于最小栈顶的值
+            this.minArr.push(value)
+        &#125; else &#123;
+            this.minArr.push(this.minArr[this.minArr.length-1])
+        &#125;
+        this.arr.push(value)
+    &#125;
+    pop()&#123;
+        if (this.arr.length &#x3D;&#x3D;&#x3D; 0)&#123;
+            console.log(&#39;空表!&#39;)
+            return -1
+        &#125;
+        this.minArr.pop()  &#x2F;&#x2F; 弹出就是两个一起弹
+        this.arr.pop()
+    &#125;
+    getMin()&#123;
+        return this.minArr[this.minArr.length-1]
+    &#125;
+&#125;
+let ms &#x3D; new MyStack1()
+ms.push(5)
+ms.push(6)
+ms.push(6)
+ms.push(4)
+ms.push(4)
+ms.push(8)
+&#x2F;&#x2F; ms.pop()
+console.log(ms.getMin())
+console.log(ms)</code></pre>
 
 
       
@@ -465,11 +465,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">归并排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">归并排序</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
             
             <div class="clearfix"></div>
