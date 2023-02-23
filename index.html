@@ -205,16 +205,18 @@
 &lt;&#x2F;Window&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>MainWindow.xaml.cs</p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public partial class MainWindow : Window
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">
+public partial class MainWindow : Window
     &#123;
         public MainWindow()
         &#123;
             InitializeComponent();
         &#125;
-    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    &#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>BaseCommand.cs</p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public class BaseCommand : ICommand
+<pre class="line-numbers language-none"><div class="caption"><span>[lang:csharp]</span></div><code class="language-none">public class BaseCommand : ICommand
     &#123;
         public event EventHandler CanExecuteChanged  &#x2F;&#x2F; 不加下面这俩 add remove，CanExecute只会触发一次！！！
         &#123;
@@ -239,7 +241,7 @@
 
 
 <p>BaseViewModel.cs</p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public class BaseViewModel : INotifyPropertyChanged
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">public class BaseViewModel : INotifyPropertyChanged
     &#123;
 
         public event PropertyChangedEventHandler PropertyChanged;
